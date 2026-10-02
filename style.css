@@ -13,7 +13,8 @@ body {
     flex-direction: column;
 }
 
-header {
+header { 
+    background-color: #ff69b4;
     color: white;
     text-align: center;
     padding: 40px 20px;
