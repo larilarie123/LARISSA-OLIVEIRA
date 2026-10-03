@@ -258,20 +258,3 @@ footer {
         padding: 15px;
     }
 }
-/* ERRO TEMPORÁRIO - CARTÃO MAIOR QUE A TELA */
-.cartao-make {
-    width: 600px !important;
-    max-width: none !important;
-}
-
-/* ERRO TEMPORÁRIO - COLUNAS NÃO ADAPTADAS */
-.cartao-make {
-    width: 600px !important;
-    max-width: none !important;
-}
-
-/* ERRO TEMPORÁRIO - BOTÕES PEQUENOS */
-.botao {
-    font-size: 8px !important;
-    padding: 3px 5px !important;
-}
