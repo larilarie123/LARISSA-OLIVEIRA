@@ -77,10 +77,6 @@ main {
     font-size: 1.5rem;
 }
 
-.cartao-make p {
-    line-height: 1.5;
-    margin-bottom: 18px;
-}
 
 .botao {
     display: inline-block;
@@ -257,4 +253,9 @@ footer {
     footer {
         padding: 15px;
     }
+}
+/* ERRO TEMPORÁRIO - TEXTO ULTRAPASSANDO A TELA */
+.cartao-make p {
+    width: 600px;
+    white-space: nowrap;
 }
