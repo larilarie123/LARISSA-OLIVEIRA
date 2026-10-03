@@ -226,14 +226,4 @@ html, body {
         max-width: 320px;
     }
 }
-/* ERRO TEMPORÁRIO - PRINT */
-/* ERRO TEMPORÁRIO - PRINT */
-.cartao-make img {
-    width: 700px !important;
-    max-width: none !important;
-    height: 500px !important;
-}
 
-html, body {
-    overflow-x: auto !important;
-}
