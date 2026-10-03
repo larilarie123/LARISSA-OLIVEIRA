@@ -263,3 +263,9 @@ footer {
     width: 600px !important;
     max-width: none !important;
 }
+
+/* ERRO TEMPORÁRIO - COLUNAS NÃO ADAPTADAS */
+.cartao-make {
+    width: 600px !important;
+    max-width: none !important;
+}
