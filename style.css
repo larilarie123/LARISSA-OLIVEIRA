@@ -254,8 +254,8 @@ footer {
         padding: 15px;
     }
 }
-/* ERRO TEMPORÁRIO - TEXTO ULTRAPASSANDO A TELA */
-.cartao-make p {
-    width: 600px;
-    white-space: nowrap;
+/* ERRO TEMPORÁRIO - CARTÃO MAIOR QUE A TELA */
+.cartao-make {
+    width: 600px !important;
+    max-width: none !important;
 }
