@@ -269,3 +269,9 @@ footer {
     width: 600px !important;
     max-width: none !important;
 }
+
+/* ERRO TEMPORÁRIO - BOTÕES PEQUENOS */
+.botao {
+    font-size: 8px !important;
+    padding: 3px 5px !important;
+}
