@@ -70,6 +70,10 @@ main {
     border-radius: 8px;
     display: block;
 }
+.cartao-make p {
+    line-height: 1.5;
+    margin-bottom: 18px;
+}
 
 .cartao-make h2 {
     color: #ff1493;
