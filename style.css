@@ -293,24 +293,3 @@ footer {
         padding: 15px;
     }
 }
-/* APRESENTAÇÃO INICIAL */
-.apresentacao {
-    background-color: #ffe4ef;
-    text-align: center;
-    padding: 35px 20px;
-    border-radius: 15px;
-    margin: 20px auto 35px;
-    max-width: 900px;
-}
-
-.apresentacao h2 {
-    color: #ff1493;
-    font-size: 28px;
-    margin-bottom: 15px;
-}
-
-.apresentacao p {
-    line-height: 1.6;
-    max-width: 650px;
-    margin: 0 auto 20px;
-}
