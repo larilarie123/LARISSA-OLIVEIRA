@@ -268,7 +268,20 @@ footer {
         width: 100%;
         max-width: 320px;
     }
+.menu {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    gap: 2px;
+    padding: 12px 5px;
+}
 
+.menu a {
+    font-size: 12px;
+    padding: 8px 5px;
+    white-space: nowrap;
+}
     .pagina {
         width: 100%;
     }
