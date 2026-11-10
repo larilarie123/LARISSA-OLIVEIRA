@@ -305,25 +305,25 @@ footer {
 }
 /* --- INTERATIVIDADE DOS CARDS --- */
 
-/* Transição suave para o card original */
-.fazer-cartão {
+/* Aplica a transição suave no card original */
+.cartao-make {
   transition: transform 0.3s ease, box-shadow 0.3s ease !important;
 }
 
-/* Efeito ativado pelo JavaScript ao passar o mouse */
-.fazer-cartão.card-ativo {
-  transform: translateY(-10px); /* Faz o card subir levemente */
-  box-shadow: 0 12px 24px rgba(255, 105, 180, 0.4); /* Cria uma sombra rosa destacando o card */
+/* Efeito que o JavaScript ativa ao passar o mouse */
+.cartao-make.card-ativo {
+  transform: translateY(-10px); /* Faz o card subir um pouco */
+  box-shadow: 0 12px 24px rgba(255, 105, 180, 0.4); /* Sombra rosa bem visível */
 }
 
-/* Zoom suave na imagem quando o card estiver ativo */
-.fazer-cartão.card-ativo img {
+/* Zoom suave na foto do card ativo */
+.cartao-make.card-ativo img {
   transform: scale(1.02);
   transition: transform 0.3s ease;
 }
 
-/* Destaque para o botão quando o card subir */
-.fazer-cartão.card-ativo .botao {
-  filter: brightness(1.1); /* Deixa o botão levemente mais iluminado */
+/* Deixa o botão destacado quando o card sobe */
+.cartao-make.card-ativo .botao {
+  filter: brightness(1.1);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
