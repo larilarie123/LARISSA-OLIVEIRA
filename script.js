@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             botaoMenu.setAttribute(
                 "aria-expanded",
-                !menu.hidden
+                String(!menu.hidden)
             );
         });
     }
@@ -30,6 +30,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (menu) {
                 menu.hidden = true;
+            }
+
+            if (botaoMenu) {
                 botaoMenu.setAttribute("aria-expanded", "false");
             }
 
@@ -39,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // VOLTAR AO INICIO
+    // VOLTAR PARA AS MAQUIAGENS
     if (botaoVoltar && secaoDuvidas && maquiagens) {
 
         botaoVoltar.addEventListener("click", function () {
