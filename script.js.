@@ -1,0 +1,59 @@
+
+// MENU INTERATIVO
+const botaoMenu = document.querySelector("#botao-menu");
+const menu = document.querySelector("#menu");
+
+if (botaoMenu && menu) {
+    botaoMenu.addEventListener("click", () => {
+        menu.classList.toggle("menu-aberto");
+    });
+}
+
+// PERGUNTAS FREQUENTES
+const perguntas = document.querySelectorAll(".pergunta");
+
+perguntas.forEach((pergunta) => {
+    pergunta.addEventListener("click", () => {
+        const resposta = pergunta.nextElementSibling;
+
+        if (resposta) {
+            resposta.classList.toggle("resposta-aberta");
+        }
+    });
+});
+
+// PRODUTOS ESSENCIAIS
+const botoesProdutos = document.querySelectorAll(".ver-produtos");
+
+botoesProdutos.forEach((botao) => {
+    botao.addEventListener("click", () => {
+        const produtos = botao.nextElementSibling;
+
+        if (produtos) {
+            produtos.classList.toggle("produtos-visiveis");
+
+            botao.textContent =
+                produtos.classList.contains("produtos-visiveis")
+                ? "Ocultar produtos"
+                : "Ver produtos";
+        }
+    });
+});
+
+// ETAPAS DA PREPARAÇÃO DA MAQUIAGEM
+const etapas = document.querySelectorAll(".etapa-maquiagem");
+
+etapas.forEach((etapa) => {
+    etapa.addEventListener("click", () => {
+        etapa.classList.toggle("etapa-concluida");
+
+        const texto = etapa.querySelector("span");
+
+        if (texto) {
+            texto.textContent =
+                etapa.classList.contains("etapa-concluida")
+                ? "✓ Concluída"
+                : "Marcar como concluída";
+        }
+    });
+});
