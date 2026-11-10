@@ -1,188 +1,305 @@
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
+    font-family: Arial, sans-serif;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
     background-color: #fff0f5;
-    color: #4a1525;
+    color: #4a3b40;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     overflow-x: hidden;
 }
 
-/* Cabeçalho */
 header {
     background-color: #ff69b4;
     color: white;
     text-align: center;
-    padding: 30px 5%;
+    padding: 40px 20px;
+    border-bottom: 4px solid #ff1493;
 }
 
 header h1 {
-    margin: 0;
-    font-size: 2rem;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
 }
 
 header p {
     font-size: 1.1rem;
 }
 
-/* Menu */
-nav {
+/* MENU DE NAVEGAÇÃO */
+.menu {
+    background-color: #ffe4ef;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 20px;
+    gap: 15px;
+    padding: 15px;
 }
 
-nav a {
-    color: white;
+.menu a {
+    color: #ff1493;
     text-decoration: none;
-    background-color: #ff1493;
-    padding: 10px 15px;
-    border-radius: 8px;
-    font-size: 1rem;
+    font-weight: bold;
+    padding: 10px 18px;
+    border-radius: 20px;
+    transition: 0.3s;
 }
 
-nav a:hover {
-    background-color: #c71585;
+.menu a:hover {
+    background-color: #ff69b4;
+    color: white;
 }
 
-/* Conteúdo */
 main {
-    width: 90%;
-    max-width: 1200px;
-    margin: 30px auto;
+    flex: 1;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto; /* CORRIGIDO: centraliza apenas na horizontal */
+    padding: 40px 20px;
 }
 
-h2 {
+.titulo {
     text-align: center;
     color: #ff1493;
-    font-size: 1.8rem;
+    margin-bottom: 30px;
 }
 
-/* Cards */
-.cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+.container-fotos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
 }
 
-.card {
+.cartao-make {
     background-color: white;
-    padding: 20px;
+    border: 3px solid #ff69b4;
     border-radius: 12px;
+    width: 310px;
+    max-width: 100%;
+    padding: 18px;
     text-align: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
 }
 
-.card img {
+.cartao-make img {
     width: 100%;
     max-width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 10;
+    height: 230px;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 8px;
+    display: block;
 }
 
-.card h3 {
-    color: #ff1493;
-    font-size: 1.3rem;
-}
-
-.card p {
-    font-size: 1rem;
+.cartao-make p {
     line-height: 1.5;
+    margin-bottom: 18px;
 }
 
-/* Botões */
+.cartao-make h2 {
+    color: #ff1493;
+    margin: 15px 0 10px;
+    font-size: 1.5rem;
+}
+
 .botao {
     display: inline-block;
     background-color: #ff69b4;
     color: white;
     text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    margin-top: 10px;
+    padding: 10px 18px;
+    border-radius: 20px;
+    font-weight: bold;
+    margin: 5px;
+    max-width: 100%;
+    text-align: center;
 }
 
 .botao:hover {
     background-color: #ff1493;
 }
 
-/* Páginas internas */
+.links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+    margin-top: 30px;
+}
+
 .pagina {
-    background-color: white;
-    padding: 30px;
-    border-radius: 12px;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
 }
 
-.imagem-detalhe {
-    display: block;
-    width: 70%;
-    max-width: 600px;
-    height: auto;
-    margin: 0 auto 25px;
-    border-radius: 12px;
-}
-
-.pagina p,
-.pagina li {
-    font-size: 1.05rem;
-    line-height: 1.6;
-}
-
-.pagina h3 {
+.pagina > h2 {
     color: #ff1493;
+    text-align: center;
+    margin-bottom: 25px;
 }
 
-/* Informações */
-.informacoes {
+.passo {
     background-color: white;
-    margin-top: 25px;
-    padding: 25px;
-    border-radius: 12px;
+    border-left: 5px solid #ff69b4;
+    border-radius: 8px;
+    padding: 18px;
+    margin-bottom: 18px;
+    max-width: 100%;
+}
+
+.passo h2 {
+    color: #ff1493;
+    margin-bottom: 10px;
+}
+
+.passo h3 {
+    color: #ff1493;
+    margin-bottom: 8px;
+}
+
+.passo p {
     line-height: 1.6;
 }
 
-/* Rodapé */
 footer {
-    background-color: #4a1525;
+    background-color: #ff69b4;
     color: white;
     text-align: center;
-    padding: 20px 5%;
-    margin-top: 40px;
+    padding: 20px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+/* COMPUTADOR */
+@media (min-width: 1001px) {
+    /* Adicione aqui apenas estilos exclusivos para telas grandes, se precisar */
 }
 
 /* TABLET */
-@media (max-width: 800px) {
+@media (min-width: 701px) and (max-width: 1000px) {
+    main {
+        width: 100%;
+        padding: 35px 20px;
+    }
 
-    .cards {
-        grid-template-columns: repeat(2, 1fr);
+    .container-fotos {
+        gap: 20px;
+    }
+
+    .cartao-make {
+        width: 45%;
+    }
+
+    .cartao-make img {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
     }
 
     header h1 {
-        font-size: 1.8rem;
+        font-size: 2.3rem;
     }
 
-    nav a {
-        font-size: 0.95rem;
-    }
-
-    .imagem-detalhe {
-        width: 85%;
+    .pagina {
+        width: 100%;
     }
 }
 
 /* CELULAR */
-@media (max-width: 520px) {
-
+@media (max-width: 700px) {
     header {
-        padding: 25px 4
+        padding: 30px 15px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    main {
+        width: 100%;
+        padding: 30px 15px;
+    }
+
+    .container-fotos {
+        width: 100%;
+        gap: 20px;
+    }
+
+    .cartao-make {
+        width: 100%;
+        max-width: 310px;
+    }
+
+    .cartao-make img {
+        width: 100%;
+        max-width: 100%;
+        height: 230px;
+        object-fit: cover;
+    }
+
+    .cartao-make h2 {
+        font-size: 1.3rem;
+    }
+
+    .links {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .botao {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .menu {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        gap: 2px;
+        padding: 12px 5px;
+    }
+
+    .menu a {
+        font-size: 12px;
+        padding: 8px 5px;
+        white-space: nowrap;
+    }
+
+    .pagina {
+        width: 100%;
+    }
+
+    .passo {
+        padding: 15px;
+    }
+
+    footer {
+        padding: 15px;
+    }
+}
+.pagina-maquiagem {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.pagina-maquiagem main {
+    flex: 1;
+}
+
+.pagina-maquiagem footer {
+    margin-top: auto;
+}
