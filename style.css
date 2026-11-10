@@ -30,6 +30,7 @@ header h1 {
 header p {
     font-size: 1.1rem;
 }
+
 /* MENU DE NAVEGAÇÃO */
 .menu {
     background-color: #ffe4ef;
@@ -54,11 +55,12 @@ header p {
     background-color: #ff69b4;
     color: white;
 }
+
 main {
     flex: 1;
     width: 100%;
     max-width: 1100px;
-    margin: auto;
+    margin: 0 auto; /* CORRIGIDO: centraliza apenas na horizontal */
     padding: 40px 20px;
 }
 
@@ -93,6 +95,7 @@ main {
     border-radius: 8px;
     display: block;
 }
+
 .cartao-make p {
     line-height: 1.5;
     margin-bottom: 18px;
@@ -103,7 +106,6 @@ main {
     margin: 15px 0 10px;
     font-size: 1.5rem;
 }
-
 
 .botao {
     display: inline-block;
@@ -134,7 +136,7 @@ main {
 .pagina {
     max-width: 800px;
     width: 100%;
-    margin: auto;
+    margin: 0 auto;
 }
 
 .pagina > h2 {
@@ -172,23 +174,16 @@ footer {
     text-align: center;
     padding: 20px;
     margin-top: 20px;
+    width: 100%;
 }
 
 /* COMPUTADOR */
 @media (min-width: 1001px) {
-
-    .container-fotos {
-        gap: 25px;
-    }
-
-    .cartao-make {
-        width: 310px;
-    }
+    /* Adicione aqui apenas estilos exclusivos para telas grandes, se precisar */
 }
 
 /* TABLET */
 @media (min-width: 701px) and (max-width: 1000px) {
-
     main {
         width: 100%;
         padding: 35px 20px;
@@ -216,9 +211,9 @@ footer {
         width: 100%;
     }
 }
+
 /* CELULAR */
 @media (max-width: 700px) {
-
     header {
         padding: 30px 15px;
     }
@@ -267,20 +262,22 @@ footer {
         width: 100%;
         max-width: 320px;
     }
-.menu {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-around;
-    gap: 2px;
-    padding: 12px 5px;
-}
 
-.menu a {
-    font-size: 12px;
-    padding: 8px 5px;
-    white-space: nowrap;
-}
+    .menu {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        gap: 2px;
+        padding: 12px 5px;
+    }
+
+    .menu a {
+        font-size: 12px;
+        padding: 8px 5px;
+        white-space: nowrap;
+    }
+
     .pagina {
         width: 100%;
     }
