@@ -1,14 +1,13 @@
-const cards = document.querySelectorAll('.cartao-make');
-
+// Seleciona os cards usando a classe exata do seu HTML
 const cards = document.querySelectorAll('.cartao-make');
 
 cards.forEach(card => {
-  // Quando o mouse entra no card
+  // Quando o mouse ou o dedo entra no card
   card.addEventListener('mouseenter', () => {
     card.classList.add('card-ativo');
   });
 
-  // Quando o mouse sai do card
+  // Quando o mouse ou o dedo sai do card
   card.addEventListener('mouseleave', () => {
     card.classList.remove('card-ativo');
   });
