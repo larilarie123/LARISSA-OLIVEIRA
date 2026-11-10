@@ -1,307 +1,188 @@
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
     background-color: #fff0f5;
-    color: #4a3b40;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+    color: #4a1525;
     overflow-x: hidden;
 }
 
+/* Cabeçalho */
 header {
     background-color: #ff69b4;
     color: white;
     text-align: center;
-    padding: 40px 20px;
-    border-bottom: 4px solid #ff1493;
+    padding: 30px 5%;
 }
 
 header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+    margin: 0;
+    font-size: 2rem;
 }
 
 header p {
     font-size: 1.1rem;
 }
 
-/* MENU DE NAVEGAÇÃO */
-.menu {
-    background-color: #ffe4ef;
+/* Menu */
+nav {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 15px;
-    padding: 15px;
+    gap: 10px;
+    margin-top: 20px;
 }
 
-.menu a {
-    color: #ff1493;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 10px 18px;
-    border-radius: 20px;
-    transition: 0.3s;
-}
-
-.menu a:hover {
-    background-color: #ff69b4;
+nav a {
     color: white;
-}
-
-main {
-    flex: 1;
-    width: 100%;
-    max-width: 1100px;
-    margin: 0 auto; /* CORRIGIDO: centraliza apenas na horizontal */
-    padding: 40px 20px;
-}
-
-.titulo {
-    text-align: center;
-    color: #ff1493;
-    margin-bottom: 30px;
-}
-
-.container-fotos {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 25px;
-}
-
-.cartao-make {
-    background-color: white;
-    border: 3px solid #ff69b4;
-    border-radius: 12px;
-    width: 310px;
-    max-width: 100%;
-    padding: 18px;
-    text-align: center;
-}
-
-.cartao-make img {
-    width: 100%;
-    max-width: 100%;
-    height: 230px;
-    object-fit: cover;
+    text-decoration: none;
+    background-color: #ff1493;
+    padding: 10px 15px;
     border-radius: 8px;
-    display: block;
+    font-size: 1rem;
 }
 
-.cartao-make p {
-    line-height: 1.5;
-    margin-bottom: 18px;
+nav a:hover {
+    background-color: #c71585;
 }
 
-.cartao-make h2 {
+/* Conteúdo */
+main {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+h2 {
+    text-align: center;
     color: #ff1493;
-    margin: 15px 0 10px;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
 }
 
+/* Cards */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.card img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.card h3 {
+    color: #ff1493;
+    font-size: 1.3rem;
+}
+
+.card p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Botões */
 .botao {
     display: inline-block;
     background-color: #ff69b4;
     color: white;
     text-decoration: none;
-    padding: 10px 18px;
-    border-radius: 20px;
-    font-weight: bold;
-    margin: 5px;
-    max-width: 100%;
-    text-align: center;
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin-top: 10px;
 }
 
 .botao:hover {
     background-color: #ff1493;
 }
 
-.links {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    text-align: center;
-    margin-top: 30px;
-}
-
+/* Páginas internas */
 .pagina {
-    max-width: 800px;
-    width: 100%;
-    margin: 0 auto;
-}
-
-.pagina > h2 {
-    color: #ff1493;
-    text-align: center;
-    margin-bottom: 25px;
-}
-
-.passo {
     background-color: white;
-    border-left: 5px solid #ff69b4;
-    border-radius: 8px;
-    padding: 18px;
-    margin-bottom: 18px;
-    max-width: 100%;
+    padding: 30px;
+    border-radius: 12px;
 }
 
-.passo h2 {
-    color: #ff1493;
-    margin-bottom: 10px;
+.imagem-detalhe {
+    display: block;
+    width: 70%;
+    max-width: 600px;
+    height: auto;
+    margin: 0 auto 25px;
+    border-radius: 12px;
 }
 
-.passo h3 {
-    color: #ff1493;
-    margin-bottom: 8px;
-}
-
-.passo p {
+.pagina p,
+.pagina li {
+    font-size: 1.05rem;
     line-height: 1.6;
 }
 
-footer {
-    background-color: #ff69b4;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    margin-top: 20px;
-    width: 100%;
+.pagina h3 {
+    color: #ff1493;
 }
 
-/* COMPUTADOR */
-@media (min-width: 1001px) {
-    /* Adicione aqui apenas estilos exclusivos para telas grandes, se precisar */
+/* Informações */
+.informacoes {
+    background-color: white;
+    margin-top: 25px;
+    padding: 25px;
+    border-radius: 12px;
+    line-height: 1.6;
+}
+
+/* Rodapé */
+footer {
+    background-color: #4a1525;
+    color: white;
+    text-align: center;
+    padding: 20px 5%;
+    margin-top: 40px;
 }
 
 /* TABLET */
-@media (min-width: 701px) and (max-width: 1000px) {
-    main {
-        width: 100%;
-        padding: 35px 20px;
-    }
+@media (max-width: 800px) {
 
-    .container-fotos {
-        gap: 20px;
-    }
-
-    .cartao-make {
-        width: 45%;
-    }
-
-    .cartao-make img {
-        width: 100%;
-        height: auto;
-        max-width: 100%;
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     header h1 {
-        font-size: 2.3rem;
+        font-size: 1.8rem;
     }
 
-    .pagina {
-        width: 100%;
+    nav a {
+        font-size: 0.95rem;
+    }
+
+    .imagem-detalhe {
+        width: 85%;
     }
 }
 
 /* CELULAR */
-@media (max-width: 700px) {
+@media (max-width: 520px) {
+
     header {
-        padding: 30px 15px;
-    }
-
-    header h1 {
-        font-size: 2rem;
-    }
-
-    header p {
-        font-size: 1rem;
-    }
-
-    main {
-        width: 100%;
-        padding: 30px 15px;
-    }
-
-    .container-fotos {
-        width: 100%;
-        gap: 20px;
-    }
-
-    .cartao-make {
-        width: 100%;
-        max-width: 310px;
-    }
-
-    .cartao-make img {
-        width: 100%;
-        max-width: 100%;
-        height: 230px;
-        object-fit: cover;
-    }
-
-    .cartao-make h2 {
-        font-size: 1.3rem;
-    }
-
-    .links {
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
-    }
-
-    .botao {
-        width: 100%;
-        max-width: 320px;
-    }
-
-    .menu {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: space-around;
-        gap: 2px;
-        padding: 12px 5px;
-    }
-
-    .menu a {
-        font-size: 12px;
-        padding: 8px 5px;
-        white-space: nowrap;
-    }
-
-    .pagina {
-        width: 100%;
-    }
-
-    .passo {
-        padding: 15px;
-    }
-
-    footer {
-        padding: 15px;
-    }
-}
-.pagina-maquiagem {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-.pagina-maquiagem main {
-    flex: 1;
-}
-
-.pagina-maquiagem footer {
-    margin-top: auto;
-}
-
-
+        padding: 25px 4
