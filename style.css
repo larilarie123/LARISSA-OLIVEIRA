@@ -290,3 +290,18 @@ footer {
         padding: 15px;
     }
 }
+.pagina-maquiagem {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.pagina-maquiagem main {
+    flex: 1;
+}
+
+.pagina-maquiagem footer {
+    margin-top: auto;
+}
+
+
