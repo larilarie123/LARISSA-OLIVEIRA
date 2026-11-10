@@ -63,6 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         card.addEventListener("click", function (event) {
 
+            // Nao interfere nos botoes e links
             if (event.target.closest("a, button")) {
                 return;
             }
@@ -73,34 +74,49 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
 
-    // EFEITO 3D DOS CARDS COM O MOUSE
-    cards.forEach(function (card) {
+    // MOVIMENTO DOS CARDS AO ROLAR A PAGINA
+    if ("IntersectionObserver" in window) {
 
-        card.addEventListener("mousemove", function (e) {
+        const observador = new IntersectionObserver(
+            function (entradas) {
 
-            if (window.matchMedia("(hover: none)").matches) {
-                return;
+                entradas.forEach(function (entrada) {
+
+                    if (entrada.isIntersecting) {
+
+                        entrada.target.animate(
+                            [
+                                {
+                                    opacity: 0,
+                                    transform: "translateY(55px) scale(0.94)"
+                                },
+                                {
+                                    opacity: 1,
+                                    transform: "translateY(0) scale(1)"
+                                }
+                            ],
+                            {
+                                duration: 850,
+                                easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+                                fill: "both"
+                            }
+                        );
+
+                        observador.unobserve(entrada.target);
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.15
             }
+        );
 
-            const rect = card.getBoundingClientRect();
-
-            const x = e.clientX - rect.left - rect.width / 2;
-            const y = e.clientY - rect.top - rect.height / 2;
-
-            const grausX = -(y / rect.height) * 8;
-            const grausY = (x / rect.width) * 8;
-
-            card.style.transform =
-                `perspective(1000px) rotateX(${grausX}deg) rotateY(${grausY}deg) scale(1.02)`;
-
+        cards.forEach(function (card) {
+            observador.observe(card);
         });
 
-        card.addEventListener("mouseleave", function () {
-
-            card.style.transform = "";
-
-        });
-
-    });
+    }
 
 });
