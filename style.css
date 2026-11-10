@@ -293,3 +293,23 @@ footer {
         padding: 15px;
     }
 }
+/* Esconde as respostas e produtos por padrão */
+#menu,
+.resposta,
+.lista-produtos {
+    display: none;
+}
+
+/* Classes que o JavaScript vai ativar ao clicar */
+#menu.menu-open,
+.resposta-aberta,
+.produtos-visiveis {
+    display: block; /* Ou 'flex', dependendo do seu design */
+}
+
+/* Opcional: Efeito visual para a etapa concluída */
+.etapa-concluida {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
