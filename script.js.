@@ -1,62 +1,14 @@
-document.addEventListener("DOMContentLoaded", function () {
+// Seleciona todos os cards com a classe "cartao-make"
+const cards = document.querySelectorAll('.cartao-make');
 
-    // MENU INTERATIVO
-    const botaoMenu = document.getElementById("botao-menu");
-    const menu = document.getElementById("menu");
+cards.forEach(card => {
+  // Quando o mouse entra no card
+  card.addEventListener('mouseenter', () => {
+    card.classList.add('card-ativo');
+  });
 
-    if (botaoMenu && menu) {
-        menu.hidden = true;
-
-        botaoMenu.addEventListener("click", function () {
-            menu.hidden = !menu.hidden;
-
-            botaoMenu.setAttribute(
-                "aria-expanded",
-                !menu.hidden
-            );
-        });
-    }
-
-    // PRODUTOS ESSENCIAIS
-    const botoesProdutos = document.querySelectorAll(".ver-produtos");
-
-    botoesProdutos.forEach(function (botao) {
-        const lista = botao.nextElementSibling;
-
-        if (lista) {
-            lista.hidden = true;
-
-            botao.addEventListener("click", function () {
-                lista.hidden = !lista.hidden;
-
-                botao.textContent = lista.hidden
-                    ? "Ver produtos"
-                    : "Ocultar produtos";
-            });
-        }
-    });
-
-    // PERGUNTAS FREQUENTES
-    const perguntas = document.querySelectorAll(".pergunta");
-
-    perguntas.forEach(function (pergunta) {
-        const resposta = pergunta.nextElementSibling;
-
-        if (resposta) {
-            resposta.hidden = true;
-
-            pergunta.setAttribute("aria-expanded", "false");
-
-            pergunta.addEventListener("click", function () {
-                resposta.hidden = !resposta.hidden;
-
-                pergunta.setAttribute(
-                    "aria-expanded",
-                    !resposta.hidden
-                );
-            });
-        }
-    });
-
+  // Quando o mouse sai do card
+  card.addEventListener('mouseleave', () => {
+    card.classList.remove('card-ativo');
+  });
 });
-
