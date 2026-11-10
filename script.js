@@ -55,5 +55,21 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     }
+// ANIMACAO DOS CARDS
+    const cards = document.querySelectorAll(".cartao-make");
 
+    cards.forEach(function (card) {
+
+        card.addEventListener("click", function (event) {
+
+            // Não interfere nos botões e links
+            if (event.target.closest("a, button")) {
+                return;
+            }
+
+            card.classList.toggle("card-ativo");
+
+        });
+
+    });
 });
