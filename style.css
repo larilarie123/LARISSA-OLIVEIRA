@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -32,6 +33,24 @@ header p {
 }
 
 /* MENU DE NAVEGAÇÃO */
+#botao-menu {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 25px;
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#botao-menu:hover {
+    background-color: #ff1493;
+}
+
 .menu {
     background-color: #ffe4ef;
     display: flex;
@@ -60,7 +79,7 @@ main {
     flex: 1;
     width: 100%;
     max-width: 1100px;
-    margin: 0 auto; /* CORRIGIDO: centraliza apenas na horizontal */
+    margin: 0 auto;
     padding: 40px 20px;
 }
 
@@ -85,6 +104,7 @@ main {
     max-width: 100%;
     padding: 18px;
     text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .cartao-make img {
@@ -94,6 +114,7 @@ main {
     object-fit: cover;
     border-radius: 8px;
     display: block;
+    transition: transform 0.3s ease;
 }
 
 .cartao-make p {
@@ -168,6 +189,109 @@ main {
     line-height: 1.6;
 }
 
+/* PRODUTOS ESSENCIAIS */
+.secao-produtos {
+    margin: 35px 0;
+    padding: 25px;
+    text-align: center;
+    background-color: white;
+    border: 2px solid #ff69b4;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(255, 105, 180, 0.12);
+}
+
+.secao-produtos h2 {
+    color: #ff1493;
+    margin-bottom: 15px;
+}
+
+.secao-produtos p {
+    line-height: 1.6;
+}
+
+.ver-produtos {
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    padding: 11px 24px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 18px 0;
+    transition: 0.3s;
+}
+
+.ver-produtos:hover {
+    background-color: #ff1493;
+}
+
+.lista-produtos {
+    margin-top: 15px;
+}
+
+.lista-produtos ul {
+    list-style: none;
+    padding: 0;
+}
+
+.lista-produtos li {
+    background-color: #fff0f5;
+    margin: 8px auto;
+    padding: 12px;
+    max-width: 400px;
+    border-radius: 8px;
+    color: #a83270;
+}
+
+/* PERGUNTAS FREQUENTES */
+.secao-perguntas {
+    margin: 35px 0;
+    padding: 25px;
+    background-color: white;
+    border: 2px solid #ff69b4;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(255, 105, 180, 0.12);
+}
+
+.secao-perguntas h2 {
+    color: #ff1493;
+    margin-bottom: 20px;
+}
+
+.item-pergunta {
+    margin: 12px 0;
+}
+
+.pergunta {
+    width: 100%;
+    padding: 14px;
+    background-color: #ffe4ef;
+    color: #d63384;
+    border: 1px solid #ff69b4;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: left;
+    transition: 0.3s;
+}
+
+.pergunta:hover {
+    background-color: #ff69b4;
+    color: white;
+}
+
+.resposta {
+    padding: 14px;
+    color: #4a3b40;
+    background-color: #fff0f5;
+    border-radius: 8px;
+    margin-top: 6px;
+    line-height: 1.6;
+    text-align: left;
+}
+
 footer {
     background-color: #ff69b4;
     color: white;
@@ -179,7 +303,9 @@ footer {
 
 /* COMPUTADOR */
 @media (min-width: 1001px) {
-    /* Adicione aqui apenas estilos exclusivos para telas grandes, se precisar */
+    .container-fotos {
+        justify-content: center;
+    }
 }
 
 /* TABLET */
@@ -264,18 +390,17 @@ footer {
     }
 
     .menu {
-        display: flex;
         flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: space-around;
-        gap: 2px;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
         padding: 12px 5px;
     }
 
     .menu a {
         font-size: 12px;
-        padding: 8px 5px;
-        white-space: nowrap;
+        padding: 8px 7px;
+        white-space: normal;
     }
 
     .pagina {
@@ -286,10 +411,22 @@ footer {
         padding: 15px;
     }
 
+    .secao-produtos,
+    .secao-perguntas {
+        padding: 18px 12px;
+        margin: 25px 0;
+    }
+
+    .pergunta {
+        font-size: 13px;
+    }
+
     footer {
         padding: 15px;
     }
 }
+
+/* ORGANIZAÇÃO DA PÁGINA PRINCIPAL */
 .pagina-maquiagem {
     min-height: 100vh;
     display: flex;
@@ -303,27 +440,19 @@ footer {
 .pagina-maquiagem footer {
     margin-top: auto;
 }
-/* --- INTERATIVIDADE DOS CARDS --- */
 
-/* Aplica a transição suave no card original */
-.cartao-make {
-  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
-}
-
-/* Efeito que o JavaScript ativa ao passar o mouse */
+/* INTERATIVIDADE DOS CARDS */
 .cartao-make.card-ativo {
-  transform: translateY(-10px); /* Faz o card subir um pouco */
-  box-shadow: 0 12px 24px rgba(255, 105, 180, 0.4); /* Sombra rosa bem visível */
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(255, 105, 180, 0.4);
 }
 
-/* Zoom suave na foto do card ativo */
 .cartao-make.card-ativo img {
-  transform: scale(1.02);
-  transition: transform 0.3s ease;
+    transform: scale(1.02);
 }
 
-/* Deixa o botão destacado quando o card sobe */
 .cartao-make.card-ativo .botao {
-  filter: brightness(1.1);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-}
+    filter: brightness(1.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+            
