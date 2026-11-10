@@ -1,14 +1,45 @@
-// Seleciona os cards usando a classe exata do seu HTML
-const cards = document.querySelectorAll('.cartao-make');
+document.addEventListener("DOMContentLoaded", function () {
 
-cards.forEach(card => {
-  // Quando o mouse ou o dedo entra no card
-  card.addEventListener('mouseenter', () => {
-    card.classList.add('card-ativo');
-  });
+    // MENU
+    const botaoMenu = document.getElementById("botao-menu");
+    const menu = document.getElementById("menu");
 
-  // Quando o mouse ou o dedo sai do card
-  card.addEventListener('mouseleave', () => {
-    card.classList.remove('card-ativo');
-  });
+    if (botaoMenu && menu) {
+        botaoMenu.addEventListener("click", function () {
+            menu.hidden = !menu.hidden;
+
+            botaoMenu.setAttribute(
+                "aria-expanded",
+                !menu.hidden
+            );
+        });
+    }
+
+    // PRODUTOS
+    document.querySelectorAll(".ver-produtos").forEach(function (botao) {
+        const lista = botao.nextElementSibling;
+
+        botao.addEventListener("click", function () {
+            lista.hidden = !lista.hidden;
+
+            botao.textContent = lista.hidden
+                ? "Ver produtos"
+                : "Ocultar produtos";
+        });
+    });
+
+    // PERGUNTAS FREQUENTES
+    document.querySelectorAll(".pergunta").forEach(function (pergunta) {
+        const resposta = pergunta.nextElementSibling;
+
+        pergunta.addEventListener("click", function () {
+            resposta.hidden = !resposta.hidden;
+
+            pergunta.setAttribute(
+                "aria-expanded",
+                !resposta.hidden
+            );
+        });
+    });
+
 });
