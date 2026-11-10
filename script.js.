@@ -1,59 +1,95 @@
 
-// MENU INTERATIVO
-const botaoMenu = document.querySelector("#botao-menu");
-const menu = document.querySelector("#menu");
+"use strict";
 
-if (botaoMenu && menu) {
-    botaoMenu.addEventListener("click", () => {
-        menu.classList.toggle("menu-aberto");
+// ==========================================
+// PROJETO: MUNDO DA MAQUIAGEM
+// ARQUIVO: script.js
+// ==========================================
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    console.log("Mundo da Maquiagem carregado!");
+
+    // ==========================================
+    // 1. MENU INTERATIVO
+    // ==========================================
+
+    const botaoMenu = document.querySelector("#botao-menu");
+    const menu = document.querySelector("#menu");
+
+    if (botaoMenu && menu) {
+        botaoMenu.addEventListener("click", function () {
+            menu.classList.toggle("menu-aberto");
+
+            botaoMenu.setAttribute(
+                "aria-expanded",
+                menu.classList.contains("menu-aberto")
+            );
+        });
+    }
+
+    // ==========================================
+    // 2. PERGUNTAS FREQUENTES (FAQ)
+    // ==========================================
+
+    const perguntas = document.querySelectorAll(".pergunta");
+
+    perguntas.forEach(function (pergunta) {
+        pergunta.addEventListener("click", function () {
+
+            const resposta = pergunta.nextElementSibling;
+
+            if (resposta) {
+                const aberta = resposta.classList.toggle("resposta-aberta");
+
+                pergunta.setAttribute("aria-expanded", aberta);
+            }
+        });
     });
-}
 
-// PERGUNTAS FREQUENTES
-const perguntas = document.querySelectorAll(".pergunta");
+    // ==========================================
+    // 3. PRODUTOS ESSENCIAIS
+    // ==========================================
 
-perguntas.forEach((pergunta) => {
-    pergunta.addEventListener("click", () => {
-        const resposta = pergunta.nextElementSibling;
+    const botoesProdutos = document.querySelectorAll(".ver-produtos");
 
-        if (resposta) {
-            resposta.classList.toggle("resposta-aberta");
-        }
+    botoesProdutos.forEach(function (botao) {
+        botao.addEventListener("click", function () {
+
+            const produtos = botao.nextElementSibling;
+
+            if (produtos) {
+                const visivel = produtos.classList.toggle("produtos-visiveis");
+
+                botao.textContent = visivel
+                    ? "Ocultar produtos"
+                    : "Ver produtos";
+            }
+        });
     });
-});
 
-// PRODUTOS ESSENCIAIS
-const botoesProdutos = document.querySelectorAll(".ver-produtos");
+    // ==========================================
+    // 4. ETAPAS DA PREPARAÇÃO DA MAQUIAGEM
+    // ==========================================
 
-botoesProdutos.forEach((botao) => {
-    botao.addEventListener("click", () => {
-        const produtos = botao.nextElementSibling;
+    const etapas = document.querySelectorAll(".etapa-maquiagem");
 
-        if (produtos) {
-            produtos.classList.toggle("produtos-visiveis");
+    etapas.forEach(function (etapa) {
 
-            botao.textContent =
-                produtos.classList.contains("produtos-visiveis")
-                ? "Ocultar produtos"
-                : "Ver produtos";
-        }
+        etapa.addEventListener("click", function () {
+
+            const concluida = etapa.classList.toggle("etapa-concluida");
+
+            const texto = etapa.querySelector("span");
+
+            if (texto) {
+                texto.textContent = concluida
+                    ? "✓ Concluída"
+                    : "Marcar como concluída";
+            }
+
+        });
+
     });
-});
 
-// ETAPAS DA PREPARAÇÃO DA MAQUIAGEM
-const etapas = document.querySelectorAll(".etapa-maquiagem");
-
-etapas.forEach((etapa) => {
-    etapa.addEventListener("click", () => {
-        etapa.classList.toggle("etapa-concluida");
-
-        const texto = etapa.querySelector("span");
-
-        if (texto) {
-            texto.textContent =
-                etapa.classList.contains("etapa-concluida")
-                ? "✓ Concluída"
-                : "Marcar como concluída";
-        }
-    });
 });
