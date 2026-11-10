@@ -55,14 +55,14 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     }
-// ANIMACAO DOS CARDS
+
+    // ANIMACAO DOS CARDS AO CLICAR
     const cards = document.querySelectorAll(".cartao-make");
 
     cards.forEach(function (card) {
 
         card.addEventListener("click", function (event) {
 
-            // Não interfere nos botões e links
             if (event.target.closest("a, button")) {
                 return;
             }
@@ -72,4 +72,35 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
     });
+
+    // EFEITO 3D DOS CARDS COM O MOUSE
+    cards.forEach(function (card) {
+
+        card.addEventListener("mousemove", function (e) {
+
+            if (window.matchMedia("(hover: none)").matches) {
+                return;
+            }
+
+            const rect = card.getBoundingClientRect();
+
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+
+            const grausX = -(y / rect.height) * 8;
+            const grausY = (x / rect.width) * 8;
+
+            card.style.transform =
+                `perspective(1000px) rotateX(${grausX}deg) rotateY(${grausY}deg) scale(1.02)`;
+
+        });
+
+        card.addEventListener("mouseleave", function () {
+
+            card.style.transform = "";
+
+        });
+
+    });
+
 });
