@@ -15,31 +15,39 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // PRODUTOS
-    document.querySelectorAll(".ver-produtos").forEach(function (botao) {
-        const lista = botao.nextElementSibling;
+    // PRODUTOS E DUVIDAS
+    const botaoProdutos = document.getElementById("botao-produtos");
+    const secaoProdutos = document.getElementById("secao-produtos");
+    const maquiagens = document.getElementById("maquiagens");
+    const botaoVoltar = document.getElementById("botao-voltar");
 
-        botao.addEventListener("click", function () {
-            lista.hidden = !lista.hidden;
+    if (botaoProdutos && secaoProdutos && maquiagens) {
 
-            botao.textContent = lista.hidden
-                ? "Ver produtos"
-                : "Ocultar produtos";
+        botaoProdutos.addEventListener("click", function () {
+            maquiagens.hidden = true;
+            secaoProdutos.hidden = false;
+
+            if (menu) {
+                menu.hidden = true;
+                botaoMenu.setAttribute("aria-expanded", "false");
+            }
+
+            secaoProdutos.scrollIntoView({
+                behavior: "smooth"
+            });
         });
-    });
+    }
 
-    // PERGUNTAS FREQUENTES
-    document.querySelectorAll(".pergunta").forEach(function (pergunta) {
-        const resposta = pergunta.nextElementSibling;
+    // VOLTAR AS MAQUIAGENS
+    if (botaoVoltar) {
+        botaoVoltar.addEventListener("click", function () {
+            secaoProdutos.hidden = true;
+            maquiagens.hidden = false;
 
-        pergunta.addEventListener("click", function () {
-            resposta.hidden = !resposta.hidden;
-
-            pergunta.setAttribute(
-                "aria-expanded",
-                !resposta.hidden
-            );
+            maquiagens.scrollIntoView({
+                behavior: "smooth"
+            });
         });
-    });
+    }
 
 });
