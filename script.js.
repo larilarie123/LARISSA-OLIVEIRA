@@ -1,4 +1,5 @@
-// Seleciona todos os cards com a classe "cartao-make"
+const cards = document.querySelectorAll('.cartao-make');
+
 const cards = document.querySelectorAll('.cartao-make');
 
 cards.forEach(card => {
