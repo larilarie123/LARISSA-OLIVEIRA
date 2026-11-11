@@ -127,6 +127,17 @@ main {
     padding: 18px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    .cartao-make {
+    transform-style: preserve-3d;
+    will-change: transform;
+    box-shadow: 0 10px 20px rgba(233, 30, 99, 0.15); /* Sombra rosada suave */
+}
+
+/* Quando o card é clicado (sua classe card-ativo) */
+.cartao-make.card-ativo {
+    box-shadow: 0 15px 30px rgba(233, 30, 99, 0.4);
+    border: 2px solid #ff4081;
+    
 }
 
 .cartao-make img {
