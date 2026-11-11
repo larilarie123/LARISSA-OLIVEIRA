@@ -115,7 +115,9 @@ main {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: stretch;
     gap: 25px;
+    perspective: 1000px; /* Melhora o efeito 3D da inclinação sem bagunçar o layout */
 }
 
 .cartao-make {
@@ -126,18 +128,21 @@ main {
     max-width: 100%;
     padding: 18px;
     text-align: center;
+    position: relative;
+    overflow: hidden; /* Impede que a imagem saia para fora da borda rosa */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    .cartao-make {
     transform-style: preserve-3d;
     will-change: transform;
-    box-shadow: 0 10px 20px rgba(233, 30, 99, 0.15); /* Sombra rosada suave */
+    box-shadow: 0 10px 20px rgba(233, 30, 99, 0.15);
+    z-index: 1;
 }
 
-/* Quando o card é clicado (sua classe card-ativo) */
-.cartao-make.card-ativo {
+/* Quando o card é clicado ou movido */
+.cartao-make.card-ativo,
+.cartao-make:hover {
     box-shadow: 0 15px 30px rgba(233, 30, 99, 0.4);
-    border: 2px solid #ff4081;
-    
+    border: 3px solid #ff4081;
+    z-index: 10; /* Faz o card ativo ficar na frente sem empurrar os vizinhos */
 }
 
 .cartao-make img {
@@ -371,7 +376,7 @@ footer {
 
     .cartao-make img {
         width: 100%;
-        height: auto;
+        height: 230px;
         max-width: 100%;
     }
 
@@ -405,11 +410,11 @@ footer {
 
     .container-fotos {
         width: 100%;
-        gap: 10px;
+        gap: 12px;
     }
 
     .cartao-make {
-        width: calc(50% - 10px);
+        width: calc(50% - 12px);
         max-width: none;
         padding: 10px;
         display: flex;
