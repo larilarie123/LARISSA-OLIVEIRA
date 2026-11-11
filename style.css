@@ -34,7 +34,7 @@ header p {
     font-size: 1.1rem;
 }
 
-/* MENU */
+/* MENU DE NAVEGAÇÃO */
 #botao-menu {
     display: block;
     margin: 10px auto;
@@ -115,8 +115,7 @@ main {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 20px;
     align-items: stretch;
-    perspective: 1200px;
-    width: 100%;
+    perspective: 1000px;
 }
 
 .cartao-make {
@@ -128,15 +127,12 @@ main {
     padding: 15px;
     text-align: center;
     position: relative;
+    overflow: hidden;
+    contain: paint;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
-    /* EFEITO 3D */
-    transform-style: preserve-3d;
-    transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-
     will-change: transform;
     box-shadow: 0 10px 20px rgba(233, 30, 99, 0.15);
     z-index: 1;
@@ -146,7 +142,7 @@ main {
 .cartao-make.card-ativo,
 .cartao-make:hover {
     box-shadow: 0 15px 30px rgba(233, 30, 99, 0.4);
-    border-color: #ff4081;
+    border: 3px solid #ff4081;
     z-index: 20;
 }
 
@@ -156,7 +152,6 @@ main {
     object-fit: cover;
     border-radius: 8px;
     display: block;
-    transform: translateZ(20px);
     transition: transform 0.3s ease;
 }
 
@@ -164,14 +159,12 @@ main {
     color: #ff1493;
     margin: 14px 0 8px;
     font-size: 1.25rem;
-    transform: translateZ(15px);
 }
 
 .cartao-make p {
     line-height: 1.4;
     font-size: 0.92rem;
     margin-bottom: 15px;
-    transform: translateZ(10px);
 }
 
 /* BOTÕES */
@@ -189,7 +182,6 @@ main {
     border: none;
     cursor: pointer;
     transition: 0.3s;
-    transform: translateZ(15px);
 }
 
 .botao:hover {
@@ -358,51 +350,6 @@ footer {
     width: 100%;
 }
 
-/* ORGANIZAÇÃO DA PÁGINA PRINCIPAL */
-.pagina-maquiagem {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-.pagina-maquiagem main {
-    flex: 1;
-}
-
-.pagina-maquiagem footer {
-    margin-top: auto;
-}
-
-/* INTERATIVIDADE DOS CARDS */
-.cartao-make.card-ativo {
-    box-shadow: 0 12px 24px rgba(255, 105, 180, 0.4);
-}
-
-.cartao-make.card-ativo img {
-    transform: translateZ(20px) scale(1.02);
-}
-
-.cartao-make.card-ativo .botao {
-    filter: brightness(1.1);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-}
-
-/* COMPUTADOR */
-@media (min-width: 951px) {
-
-    .pagina-maquiagem main {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .pagina-maquiagem .container-fotos {
-        max-width: 1160px;
-        margin: 0 auto;
-    }
-
-}
-
 /* TABLET */
 @media (max-width: 950px) {
 
@@ -502,7 +449,37 @@ footer {
 
 }
 
-/* CELULAR COM MODO COMPUTADOR */
+/* ORGANIZAÇÃO DA PÁGINA PRINCIPAL */
+.pagina-maquiagem {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.pagina-maquiagem main {
+    flex: 1;
+}
+
+.pagina-maquiagem footer {
+    margin-top: auto;
+}
+
+/* INTERATIVIDADE DOS CARDS */
+.cartao-make.card-ativo {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(255, 105, 180, 0.4);
+}
+
+.cartao-make.card-ativo img {
+    transform: scale(1.02);
+}
+
+.cartao-make.card-ativo .botao {
+    filter: brightness(1.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* AJUSTE PARA CELULARES COM MODO COMPUTADOR */
 @media (hover: none) and (pointer: coarse) {
 
     .container-fotos {
@@ -550,14 +527,4 @@ footer {
     }
 
 }
-
-/* ACESSIBILIDADE */
-@media (prefers-reduced-motion: reduce) {
-
-    .cartao-make,
-    .cartao-make img,
-    .botao {
-        transition: none;
-    }
-
-}
+w
