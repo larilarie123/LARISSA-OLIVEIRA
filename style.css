@@ -461,44 +461,40 @@ footer {
 /* CELULAR COM VERSÃO PARA COMPUTADOR */
 @media (hover: none) and (pointer: coarse) and (min-width: 701px) {
 
+    .pagina-maquiagem {
+        min-height: 100vh;
+    }
+
     .pagina-maquiagem main {
-        max-width: 1250px;
+        flex: 0 0 auto;
         width: 100%;
-        padding: 25px 18px;
+        max-width: 1050px;
+        margin: 0 auto;
+        padding: 25px 30px 20px;
     }
 
     .pagina-maquiagem .container-fotos {
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 14px;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 22px;
         width: 100%;
+        align-items: stretch;
     }
 
     .pagina-maquiagem .cartao-make {
-        padding: 12px;
-        min-height: 340px;
+        width: 100%;
+        min-height: 370px;
+        padding: 16px;
     }
 
     .pagina-maquiagem .cartao-make img {
         width: 100%;
-        height: 185px;
+        height: 210px;
         object-fit: contain;
     }
 
-    .pagina-maquiagem .cartao-make h2 {
-        font-size: 1rem;
-        margin: 12px 0 8px;
-    }
-
-    .pagina-maquiagem .cartao-make p {
-        font-size: 0.85rem;
-        line-height: 1.4;
-        margin-bottom: 12px;
-    }
-
-    .pagina-maquiagem .botao {
-        font-size: 0.85rem;
-        padding: 10px 6px;
+    .pagina-maquiagem footer {
+        margin-top: 0;
     }
 }
 
