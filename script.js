@@ -1,121 +1,123 @@
 
-// MENU  
-const botaoMenu = document.getElementById("botao-menu");  
-const menu = document.getElementById("menu");  
+document.addEventListener("DOMContentLoaded", function () {
 
-if (botaoMenu && menu) {  
-    botaoMenu.addEventListener("click", function () {  
-        menu.hidden = !menu.hidden;  
+    // MENU
+    const botaoMenu = document.getElementById("botao-menu");
+    const menu = document.getElementById("menu");
 
-        botaoMenu.setAttribute(  
-            "aria-expanded",  
-            String(!menu.hidden)  
-        );  
-    });  
-}  
+    if (botaoMenu && menu) {
+        botaoMenu.addEventListener("click", function () {
+            menu.hidden = !menu.hidden;
 
-// DUVIDAS FREQUENTES  
-const botaoDuvidas = document.getElementById("botao-produtos");  
-const secaoDuvidas = document.getElementById("secao-produtos");  
-const maquiagens = document.getElementById("maquiagens");  
-const botaoVoltar = document.getElementById("botao-voltar");  
+            botaoMenu.setAttribute(
+                "aria-expanded",
+                String(!menu.hidden)
+            );
+        });
+    }
 
-if (botaoDuvidas && secaoDuvidas && maquiagens) {  
+    // DUVIDAS FREQUENTES
+    const botaoDuvidas = document.getElementById("botao-produtos");
+    const secaoDuvidas = document.getElementById("secao-produtos");
+    const maquiagens = document.getElementById("maquiagens");
+    const botaoVoltar = document.getElementById("botao-voltar");
 
-    botaoDuvidas.addEventListener("click", function () {  
+    if (botaoDuvidas && secaoDuvidas && maquiagens) {
 
-        maquiagens.hidden = true;  
-        secaoDuvidas.hidden = false;  
+        botaoDuvidas.addEventListener("click", function () {
 
-        if (menu) {  
-            menu.hidden = true;  
-        }  
+            maquiagens.hidden = true;
+            secaoDuvidas.hidden = false;
 
-        if (botaoMenu) {  
-            botaoMenu.setAttribute("aria-expanded", "false");  
-        }  
+            if (menu) {
+                menu.hidden = true;
+            }
 
-        secaoDuvidas.scrollIntoView({  
-            behavior: "smooth"  
-        });  
-    });  
-}  
+            if (botaoMenu) {
+                botaoMenu.setAttribute("aria-expanded", "false");
+            }
 
-// VOLTAR PARA AS MAQUIAGENS  
-if (botaoVoltar && secaoDuvidas && maquiagens) {  
+            secaoDuvidas.scrollIntoView({
+                behavior: "smooth"
+            });
+        });
+    }
 
-    botaoVoltar.addEventListener("click", function () {  
+    // VOLTAR PARA AS MAQUIAGENS
+    if (botaoVoltar && secaoDuvidas && maquiagens) {
 
-        secaoDuvidas.hidden = true;  
-        maquiagens.hidden = false;  
+        botaoVoltar.addEventListener("click", function () {
 
-        maquiagens.scrollIntoView({  
-            behavior: "smooth"  
-        });  
-    });  
-}  
+            secaoDuvidas.hidden = true;
+            maquiagens.hidden = false;
 
-// ANIMACAO DOS CARDS AO CLICAR  
-const cards = document.querySelectorAll(".cartao-make");  
+            maquiagens.scrollIntoView({
+                behavior: "smooth"
+            });
+        });
+    }
 
-cards.forEach(function (card) {  
+    // ANIMACAO DOS CARDS AO CLICAR
+    const cards = document.querySelectorAll(".cartao-make");
 
-    card.addEventListener("click", function (event) {  
+    cards.forEach(function (card) {
 
-        // Nao interfere nos botoes e links  
-        if (event.target.closest("a, button")) {  
-            return;  
-        }  
+        card.addEventListener("click", function (event) {
 
-        card.classList.toggle("card-ativo");  
+            // Nao interfere nos botoes e links
+            if (event.target.closest("a, button")) {
+                return;
+            }
 
-    });  
+            card.classList.toggle("card-ativo");
 
-});  
+        });
 
-// MOVIMENTO DOS CARDS AO ROLAR A PAGINA  
-if ("IntersectionObserver" in window) {  
+    });
 
-    const observador = new IntersectionObserver(  
-        function (entradas) {  
+    // MOVIMENTO DOS CARDS AO ROLAR A PAGINA
+    if ("IntersectionObserver" in window) {
 
-            entradas.forEach(function (entrada) {  
+        const observador = new IntersectionObserver(
+            function (entradas) {
 
-                if (entrada.isIntersecting) {  
+                entradas.forEach(function (entrada) {
 
-                    entrada.target.animate(  
-                        [  
-                            {  
-                                opacity: 0,  
-                                transform: "translateY(55px) scale(0.94)"  
-                            },  
-                            {  
-                                opacity: 1,  
-                                transform: "translateY(0) scale(1)"  
-                            }  
-                        ],  
-                        {  
-                            duration: 850,  
-                            easing: "cubic-bezier(0.22, 1, 0.36, 1)",  
-                            fill: "both"  
-                        }  
-                    );  
+                    if (entrada.isIntersecting) {
 
-                    observador.unobserve(entrada.target);  
-                }  
+                        entrada.target.animate(
+                            [
+                                {
+                                    opacity: 0,
+                                    transform: "translateY(55px) scale(0.94)"
+                                },
+                                {
+                                    opacity: 1,
+                                    transform: "translateY(0) scale(1)"
+                                }
+                            ],
+                            {
+                                duration: 850,
+                                easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+                                fill: "both"
+                            }
+                        );
 
-            });  
+                        observador.unobserve(entrada.target);
+                    }
 
-        },  
-        {  
-            threshold: 0.15  
-        }  
-    );  
+                });
 
-    cards.forEach(function (card) {  
-        observador.observe(card);  
-    });  
+            },
+            {
+                threshold: 0.15
+            }
+        );
 
-}
+        cards.forEach(function (card) {
+            observador.observe(card);
+        });
+
+    }
 
 });
