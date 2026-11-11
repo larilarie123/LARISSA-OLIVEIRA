@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", function () {
 
     // MENU
@@ -56,25 +57,65 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // ANIMACAO DOS CARDS AO CLICAR
+    // CARDS
     const cards = document.querySelectorAll(".cartao-make");
 
     cards.forEach(function (card) {
 
+        // PREPARAÇÃO DO EFEITO 3D
+        card.style.transformStyle = "preserve-3d";
+        card.style.willChange = "transform";
+        card.style.transition = "transform 0.15s ease, box-shadow 0.2s ease";
+
+        // MOVIMENTO 3D COM O MOUSE
+        card.addEventListener("pointermove", function (event) {
+
+            if (event.pointerType !== "mouse") return;
+
+            const rect = card.getBoundingClientRect();
+
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+
+            const centroX = rect.width / 2;
+            const centroY = rect.height / 2;
+
+            const rotacaoY = ((x - centroX) / centroX) * 10;
+            const rotacaoX = ((centroY - y) / centroY) * 10;
+
+            card.style.transform =
+                "perspective(1000px) rotateX(" +
+                rotacaoX +
+                "deg) rotateY(" +
+                rotacaoY +
+                "deg) scale3d(1.04, 1.04, 1.04)";
+
+            card.style.boxShadow =
+                "0 20px 35px rgba(180, 70, 100, 0.30)";
+        });
+
+        // VOLTA AO NORMAL
+        card.addEventListener("pointerleave", function () {
+
+            card.style.transform =
+                "perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)";
+
+            card.style.boxShadow = "";
+        });
+
+        // ANIMACAO AO CLICAR
         card.addEventListener("click", function (event) {
 
-            // Nao interfere nos botoes e links
             if (event.target.closest("a, button")) {
                 return;
             }
 
             card.classList.toggle("card-ativo");
-
         });
 
     });
 
-    // MOVIMENTO DOS CARDS AO ROLAR A PAGINA
+    // ANIMACAO AO ROLAR A PAGINA
     if ("IntersectionObserver" in window) {
 
         const observador = new IntersectionObserver(
@@ -84,11 +125,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     if (entrada.isIntersecting) {
 
-                        entrada.target.animate(
+                        const card = entrada.target;
+
+                        const animacao = card.animate(
                             [
                                 {
                                     opacity: 0,
-                                    transform: "translateY(55px) scale(0.94)"
+                                    transform: "translateY(45px) scale(0.94)"
                                 },
                                 {
                                     opacity: 1,
@@ -97,14 +140,16 @@ document.addEventListener("DOMContentLoaded", function () {
                             ],
                             {
                                 duration: 850,
-                                easing: "cubic-bezier(0.22, 1, 0.36, 1)",
-                                fill: "both"
+                                easing: "cubic-bezier(0.22, 1, 0.36, 1)"
                             }
                         );
 
-                        observador.unobserve(entrada.target);
-                    }
+                        animacao.onfinish = function () {
+                            card.style.opacity = "1";
+                        };
 
+                        observador.unobserve(card);
+                    }
                 });
 
             },
@@ -116,7 +161,6 @@ document.addEventListener("DOMContentLoaded", function () {
         cards.forEach(function (card) {
             observador.observe(card);
         });
-
     }
 
 });
