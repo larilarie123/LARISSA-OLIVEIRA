@@ -527,3 +527,49 @@ footer {
         transition: none;
     }
 }
+
+/* AJUSTE DOS CARDS NA VERSÃO PARA COMPUTADOR DO CELULAR */
+@media (hover: none) and (pointer: coarse) and (min-width: 701px) {
+
+    .pagina-maquiagem main {
+        justify-content: flex-start;
+        padding: 22px 30px 30px;
+    }
+
+    .pagina-maquiagem .container-fotos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+        margin-top: 12px;
+        align-items: stretch;
+    }
+
+    .pagina-maquiagem .cartao-make {
+        min-height: 440px;
+        padding: 18px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .pagina-maquiagem .cartao-make img {
+        height: 245px;
+        width: 100%;
+        object-fit: contain;
+    }
+
+    .pagina-maquiagem .cartao-make h2 {
+        margin: 16px 0 10px;
+        font-size: 1.2rem;
+    }
+
+    .pagina-maquiagem .cartao-make p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin-bottom: 18px;
+    }
+
+    .pagina-maquiagem .cartao-make .botao {
+        margin-top: auto;
+    }
+}
+
