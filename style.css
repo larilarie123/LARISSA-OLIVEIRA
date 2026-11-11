@@ -99,7 +99,7 @@ header p {
 main {
     flex: 1;
     width: 100%;
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 40px 20px;
 }
@@ -110,28 +110,29 @@ main {
     margin-bottom: 30px;
 }
 
-/* CARDS DE MAQUIAGEM */
+/* CARDS DE MAQUIAGEM (4 COLUNAS NO COMPUTADOR) */
 .container-fotos {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
     align-items: stretch;
-    gap: 25px;
-    perspective: 1000px; /* Melhora o efeito 3D da inclinação sem bagunçar o layout */
+    perspective: 1000px;
 }
 
 .cartao-make {
     background-color: white;
     border: 3px solid #ff69b4;
     border-radius: 12px;
-    width: 310px;
-    max-width: 100%;
-    padding: 18px;
+    width: 100%;
+    padding: 15px;
     text-align: center;
     position: relative;
-    overflow: hidden; /* Impede que a imagem saia para fora da borda rosa */
+    overflow: hidden;
+    contain: paint; /* Impede que a imagem vaze do cartão durante a rotação 3D */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    transform-style: preserve-3d;
     will-change: transform;
     box-shadow: 0 10px 20px rgba(233, 30, 99, 0.15);
     z-index: 1;
@@ -142,28 +143,28 @@ main {
 .cartao-make:hover {
     box-shadow: 0 15px 30px rgba(233, 30, 99, 0.4);
     border: 3px solid #ff4081;
-    z-index: 10; /* Faz o card ativo ficar na frente sem empurrar os vizinhos */
+    z-index: 20;
 }
 
 .cartao-make img {
     width: 100%;
-    max-width: 100%;
-    height: 230px;
+    height: 210px;
     object-fit: cover;
     border-radius: 8px;
     display: block;
     transition: transform 0.3s ease;
 }
 
-.cartao-make p {
-    line-height: 1.5;
-    margin-bottom: 18px;
-}
-
 .cartao-make h2 {
     color: #ff1493;
-    margin: 15px 0 10px;
-    font-size: 1.5rem;
+    margin: 14px 0 8px;
+    font-size: 1.25rem;
+}
+
+.cartao-make p {
+    line-height: 1.4;
+    font-size: 0.92rem;
+    margin-bottom: 15px;
 }
 
 /* BOTÕES */
@@ -172,14 +173,15 @@ main {
     background-color: #ff69b4;
     color: white;
     text-decoration: none;
-    padding: 10px 18px;
+    padding: 10px 14px;
     border-radius: 20px;
     font-weight: bold;
-    margin: 5px;
-    max-width: 100%;
+    margin-top: auto;
+    width: 100%;
     text-align: center;
     border: none;
     cursor: pointer;
+    transition: 0.3s;
 }
 
 .botao:hover {
@@ -218,14 +220,10 @@ main {
     max-width: 100%;
 }
 
-.passo h2 {
-    color: #ff1493;
-    margin-bottom: 10px;
-}
-
+.passo h2,
 .passo h3 {
     color: #ff1493;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
 .passo p {
@@ -352,44 +350,19 @@ footer {
     width: 100%;
 }
 
-/* COMPUTADOR */
-@media (min-width: 1001px) {
+/* TABLET (2 COLUNAS) */
+@media (max-width: 950px) {
     .container-fotos {
-        justify-content: center;
-    }
-}
-
-/* TABLET */
-@media (min-width: 701px) and (max-width: 1000px) {
-    main {
-        width: 100%;
-        padding: 35px 20px;
-    }
-
-    .container-fotos {
-        gap: 20px;
-    }
-
-    .cartao-make {
-        width: 45%;
-    }
-
-    .cartao-make img {
-        width: 100%;
-        height: 230px;
-        max-width: 100%;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
     }
 
     header h1 {
         font-size: 2.3rem;
     }
-
-    .pagina {
-        width: 100%;
-    }
 }
 
-/* CELULAR */
+/* CELULAR (2 COLUNAS LADO A LADO) */
 @media (max-width: 700px) {
     header {
         padding: 30px 15px;
@@ -405,38 +378,30 @@ footer {
 
     main {
         width: 100%;
-        padding: 25px 10px;
+        padding: 25px 12px;
     }
 
     .container-fotos {
-        width: 100%;
+        grid-template-columns: repeat(2, 1fr);
         gap: 12px;
     }
 
     .cartao-make {
-        width: calc(50% - 12px);
-        max-width: none;
         padding: 10px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
     }
 
     .cartao-make img {
-        width: 100%;
-        max-width: 100%;
-        height: 150px;
-        object-fit: cover;
+        height: 145px;
     }
 
     .cartao-make h2 {
-        font-size: 1.1rem;
+        font-size: 1.05rem;
         margin: 10px 0 6px;
     }
 
     .cartao-make p {
-        font-size: 0.85rem;
-        margin-bottom: 12px;
+        font-size: 0.82rem;
+        margin-bottom: 10px;
     }
 
     .links {
@@ -446,34 +411,19 @@ footer {
     }
 
     .botao {
-        width: 100%;
-        max-width: 320px;
         padding: 8px 10px;
-        font-size: 0.85rem;
-        margin: 0;
+        font-size: 0.82rem;
     }
 
     .menu {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
         gap: 5px;
         padding: 12px 5px;
     }
 
-    .menu a {
-        font-size: 12px;
-        padding: 8px 7px;
-        white-space: normal;
-    }
-
+    .menu a,
     .menu button#botao-produtos {
         font-size: 12px;
         padding: 8px 7px;
-    }
-
-    .pagina {
-        width: 100%;
     }
 
     .passo {
@@ -512,7 +462,7 @@ footer {
 
 /* INTERATIVIDADE DOS CARDS */
 .cartao-make.card-ativo {
-    transform: translateY(-10px);
+    transform: translateY(-8px);
     box-shadow: 0 12px 24px rgba(255, 105, 180, 0.4);
 }
 
