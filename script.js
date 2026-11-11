@@ -57,67 +57,32 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // ANIMACAO DOS CARDS AO CLICAR
+    // CARDS
     const cards = document.querySelectorAll(".cartao-make");
 
     cards.forEach(function (card) {
 
+        // LIMPA TRANSFORMACOES ANTIGAS
+        card.getAnimations().forEach(function (animacao) {
+            animacao.cancel();
+        });
+
+        card.style.removeProperty("transform");
+        card.style.removeProperty("transform-style");
+        card.style.removeProperty("will-change");
+        card.style.removeProperty("box-shadow");
+        card.style.removeProperty("opacity");
+
+        // ANIMACAO AO CLICAR
         card.addEventListener("click", function (event) {
 
-            // Nao interfere nos botoes e links
             if (event.target.closest("a, button")) {
                 return;
             }
 
             card.classList.toggle("card-ativo");
-
         });
 
     });
-
-    // MOVIMENTO DOS CARDS AO ROLAR A PAGINA
-    if ("IntersectionObserver" in window) {
-
-        const observador = new IntersectionObserver(
-            function (entradas) {
-
-                entradas.forEach(function (entrada) {
-
-                    if (entrada.isIntersecting) {
-
-                        entrada.target.animate(
-                            [
-                                {
-                                    opacity: 0,
-                                    transform: "translateY(55px) scale(0.94)"
-                                },
-                                {
-                                    opacity: 1,
-                                    transform: "translateY(0) scale(1)"
-                                }
-                            ],
-                            {
-                                duration: 850,
-                                easing: "cubic-bezier(0.22, 1, 0.36, 1)",
-                                fill: "both"
-                            }
-                        );
-
-                        observador.unobserve(entrada.target);
-                    }
-
-                });
-
-            },
-            {
-                threshold: 0.15
-            }
-        );
-
-        cards.forEach(function (card) {
-            observador.observe(card);
-        });
-
-    }
 
 });
