@@ -1,14 +1,8 @@
-
-/* CONFIGURAÇÕES GERAIS */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
-}
-
-html {
-    min-height: 100%;
 }
 
 body {
@@ -20,7 +14,6 @@ body {
     overflow-x: hidden;
 }
 
-/* CABEÇALHO */
 header {
     background-color: #ff69b4;
     color: white;
@@ -38,26 +31,7 @@ header p {
     font-size: 1.1rem;
 }
 
-/* BOTÃO DO MENU */
-#botao-menu {
-    display: block;
-    margin: 10px auto;
-    padding: 10px 25px;
-    background-color: #ff69b4;
-    color: white;
-    border: none;
-    border-radius: 20px;
-    font-size: 15px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-#botao-menu:hover {
-    background-color: #ff1493;
-}
-
-/* MENU */
+/* MENU DE NAVEGAÇÃO */
 .menu {
     background-color: #ffe4ef;
     display: flex;
@@ -82,30 +56,12 @@ header p {
     color: white;
 }
 
-.menu button#botao-produtos {
-    background: transparent;
-    color: #ff1493;
-    font-weight: bold;
-    padding: 10px 18px;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: 0.3s;
-}
-
-.menu button#botao-produtos:hover {
-    background-color: #ff69b4;
-    color: white;
-}
-
-/* CONTEÚDO PRINCIPAL */
 main {
     flex: 1;
     width: 100%;
-    max-width: 1250px;
-    margin: 0 auto;
-    padding: 30px 20px;
+    max-width: 1100px;
+    margin: 0 auto; /* CORRIGIDO: centraliza apenas na horizontal */
+    padding: 40px 20px;
 }
 
 .titulo {
@@ -114,90 +70,60 @@ main {
     margin-bottom: 30px;
 }
 
-/* CARDS */
 .container-fotos {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 15px;
-    align-items: stretch;
-    width: 100%;
-    perspective: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
 }
 
 .cartao-make {
     background-color: white;
-    border: 2px solid #ff69b4;
+    border: 3px solid #ff69b4;
     border-radius: 12px;
-    width: 100%;
-    min-width: 0;
-    padding: 12px;
+    width: 310px;
+    max-width: 100%;
+    padding: 18px;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transform-style: preserve-3d;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 10px 20px rgba(233, 30, 99, 0.15);
-    position: relative;
 }
 
-.cartao-make:hover,
-.cartao-make.card-ativo {
-    box-shadow: 0 15px 30px rgba(233, 30, 99, 0.3);
-    border-color: #ff1493;
-}
-
-/* IMAGENS */
 .cartao-make img {
     width: 100%;
-    height: 210px;
-    object-fit: contain;
-    background-color: white;
+    max-width: 100%;
+    height: 230px;
+    object-fit: cover;
     border-radius: 8px;
     display: block;
-    transition: transform 0.3s ease;
 }
 
-.cartao-make.card-ativo img {
-    transform: scale(1.03);
+.cartao-make p {
+    line-height: 1.5;
+    margin-bottom: 18px;
 }
 
-/* TÍTULOS */
 .cartao-make h2 {
     color: #ff1493;
-    margin: 12px 0 8px;
-    font-size: 1.15rem;
+    margin: 15px 0 10px;
+    font-size: 1.5rem;
 }
 
-/* TEXTOS */
-.cartao-make p {
-    line-height: 1.4;
-    font-size: 0.9rem;
-    margin-bottom: 15px;
-}
-
-/* BOTÕES */
 .botao {
-    display: block;
+    display: inline-block;
     background-color: #ff69b4;
     color: white;
     text-decoration: none;
-    padding: 10px 14px;
+    padding: 10px 18px;
     border-radius: 20px;
     font-weight: bold;
-    margin-top: auto;
-    width: 100%;
+    margin: 5px;
+    max-width: 100%;
     text-align: center;
-    border: none;
-    cursor: pointer;
-    transition: 0.3s;
 }
 
 .botao:hover {
     background-color: #ff1493;
 }
 
-/* LINKS */
 .links {
     display: flex;
     flex-wrap: wrap;
@@ -207,7 +133,6 @@ main {
     margin-top: 30px;
 }
 
-/* PÁGINAS INTERNAS */
 .pagina {
     max-width: 800px;
     width: 100%;
@@ -229,143 +154,66 @@ main {
     max-width: 100%;
 }
 
-.passo h2,
-.passo h3 {
+.passo h2 {
     color: #ff1493;
     margin-bottom: 10px;
+}
+
+.passo h3 {
+    color: #ff1493;
+    margin-bottom: 8px;
 }
 
 .passo p {
     line-height: 1.6;
 }
 
-/* PRODUTOS E PERGUNTAS */
-.secao-produtos,
-.secao-perguntas {
-    margin: 35px 0;
-    padding: 25px;
-    text-align: center;
-    background-color: white;
-    border: 2px solid #ff69b4;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(255, 105, 180, 0.12);
-}
-
-.secao-produtos h2,
-.secao-perguntas h2 {
-    color: #ff1493;
-    margin-bottom: 20px;
-}
-
-.secao-produtos p,
-.secao-perguntas p {
-    line-height: 1.6;
-}
-
-/* DÚVIDAS FREQUENTES */
-#secao-produtos {
-    width: 100%;
-    margin: 25px auto;
-    text-align: center;
-}
-
-#secao-produtos h2 {
-    color: #ff1493;
-    margin-bottom: 20px;
-}
-
-#secao-produtos .cartao-make {
-    width: 100%;
-    max-width: 750px;
-    margin: 0 auto 20px;
-    text-align: left;
-}
-
-#secao-produtos h3 {
-    color: #ff1493;
-    margin: 18px 0 8px;
-}
-
-#secao-produtos p {
-    line-height: 1.6;
-    margin-bottom: 15px;
-}
-
-#botao-voltar {
-    cursor: pointer;
-    border: none;
-    font-size: 15px;
-}
-
-/* ELEMENTOS ESCONDIDOS */
-[hidden] {
-    display: none !important;
-}
-
-/* RODAPÉ */
 footer {
     background-color: #ff69b4;
     color: white;
     text-align: center;
     padding: 20px;
-    margin-top: auto;
+    margin-top: 20px;
     width: 100%;
-    flex-shrink: 0;
-}
-
-/* PÁGINA PRINCIPAL */
-.pagina-maquiagem {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-.pagina-maquiagem main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
 
 /* COMPUTADOR */
-@media (min-width: 951px) {
-
-    .pagina-maquiagem main {
-        max-width: 1250px;
-        padding: 35px 20px;
-    }
-
-    .pagina-maquiagem .container-fotos {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 15px;
-    }
-
-    .pagina-maquiagem .cartao-make img {
-        height: 210px;
-        object-fit: contain;
-    }
+@media (min-width: 1001px) {
+    /* Adicione aqui apenas estilos exclusivos para telas grandes, se precisar */
 }
 
 /* TABLET */
-@media (min-width: 701px) and (max-width: 950px) {
+@media (min-width: 701px) and (max-width: 1000px) {
+    main {
+        width: 100%;
+        padding: 35px 20px;
+    }
 
     .container-fotos {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 18px;
+        gap: 20px;
+    }
+
+    .cartao-make {
+        width: 45%;
+    }
+
+    .cartao-make img {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
     }
 
     header h1 {
         font-size: 2.3rem;
     }
 
-    .cartao-make img {
-        height: 200px;
+    .pagina {
+        width: 100%;
     }
 }
 
-/* CELULAR NORMAL */
+/* CELULAR */
 @media (max-width: 700px) {
-
     header {
         padding: 30px 15px;
     }
@@ -380,170 +228,78 @@ footer {
 
     main {
         width: 100%;
-        padding: 25px 12px;
+        padding: 30px 15px;
     }
 
-    .pagina-maquiagem main {
-        justify-content: flex-start;
-        padding: 22px 20px 30px;
-    }
-
-    .pagina-maquiagem .container-fotos {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 16px;
-        margin-top: 12px;
-    }
-
-    .pagina-maquiagem .cartao-make {
-        padding: 12px;
-        min-height: 345px;
-        justify-content: flex-start;
-    }
-
-    .pagina-maquiagem .cartao-make img {
+    .container-fotos {
         width: 100%;
-        height: 200px;
+        gap: 20px;
+    }
+
+    .cartao-make {
+        width: 100%;
+        max-width: 310px;
+    }
+
+    .cartao-make img {
+        width: 100%;
+        max-width: 100%;
+        height: 230px;
         object-fit: cover;
     }
 
-    .pagina-maquiagem .cartao-make h2 {
-        font-size: 1.05rem;
-        margin: 10px 0 8px;
+    .cartao-make h2 {
+        font-size: 1.3rem;
     }
 
-    .pagina-maquiagem .cartao-make p {
-        font-size: 0.85rem;
-        line-height: 1.5;
-        margin-bottom: 12px;
+    .links {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
     }
 
-    .pagina-maquiagem .cartao-make .botao {
-        width: auto;
-        align-self: center;
-        margin-top: auto;
-        padding: 9px 16px;
+    .botao {
+        width: 100%;
+        max-width: 320px;
     }
 
     .menu {
-        gap: 5px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        gap: 2px;
         padding: 12px 5px;
     }
 
-    .menu a,
-    .menu button#botao-produtos {
+    .menu a {
         font-size: 12px;
-        padding: 8px 7px;
+        padding: 8px 5px;
+        white-space: nowrap;
+    }
+
+    .pagina {
+        width: 100%;
     }
 
     .passo {
         padding: 15px;
     }
 
-    .secao-produtos,
-    .secao-perguntas {
-        padding: 18px 12px;
-        margin: 25px 0;
-    }
-
     footer {
         padding: 15px;
     }
 }
-
-/* TELAS MUITO PEQUENAS */
-@media (max-width: 400px) {
-
-    .pagina-maquiagem .container-fotos {
-        gap: 10px;
-    }
-
-    .pagina-maquiagem .cartao-make {
-        padding: 8px;
-        min-height: 320px;
-    }
-
-    .pagina-maquiagem .cartao-make img {
-        height: 170px;
-    }
-
-    .pagina-maquiagem .cartao-make h2 {
-        font-size: 0.95rem;
-    }
-
-    .pagina-maquiagem .cartao-make p {
-        font-size: 0.78rem;
-    }
+.pagina-maquiagem {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-/* CELULAR EM MODO VERSÃO PARA COMPUTADOR */
-@media (hover: none) and (pointer: coarse) and (min-width: 701px) {
-
-    .pagina-maquiagem {
-        min-height: 100vh;
-    }
-
-    .pagina-maquiagem main {
-        flex: 1;
-        width: 100%;
-        max-width: 1050px;
-        margin: 0 auto;
-        padding: 22px 30px 30px;
-        justify-content: flex-start;
-    }
-
-    .pagina-maquiagem .container-fotos {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 22px;
-        width: 100%;
-        margin-top: 12px;
-        align-items: stretch;
-    }
-
-    .pagina-maquiagem .cartao-make {
-        width: 100%;
-        min-height: 345px;
-        padding: 12px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-    }
-
-    .pagina-maquiagem .cartao-make img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-    }
-
-    .pagina-maquiagem .cartao-make h2 {
-        font-size: 1.05rem;
-        margin: 10px 0 8px;
-    }
-
-    .pagina-maquiagem .cartao-make p {
-        font-size: 0.85rem;
-        line-height: 1.5;
-        margin-bottom: 12px;
-    }
-
-    .pagina-maquiagem .cartao-make .botao {
-        width: auto;
-        align-self: center;
-        margin-top: auto;
-        padding: 9px 16px;
-    }
-
-    .pagina-maquiagem footer {
-        margin-top: auto;
-    }
+.pagina-maquiagem main {
+    flex: 1;
 }
 
-/* ACESSIBILIDADE */
-@media (prefers-reduced-motion: reduce) {
-
-    .cartao-make,
-    .cartao-make img,
-    .botao {
-        transition: none;
-    }
+.pagina-maquiagem footer {
+    margin-top: auto;
 }
