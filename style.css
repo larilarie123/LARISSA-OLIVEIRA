@@ -97,6 +97,19 @@ header p {
     color: white;
 }
 
+/* DÚVIDAS FREQUENTES NO MENU */
+.menu button#botao-duvidas {
+    background: transparent !important;
+    color: #ff1493 !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.menu button#botao-duvidas:hover {
+    background: transparent !important;
+    color: #ff69b4 !important;
+}
+
 /* CONTEÚDO PRINCIPAL */
 main {
     flex: 1;
@@ -238,11 +251,11 @@ main {
     line-height: 1.6;
 }
 
-/* DÚVIDAS FREQUENTES */
+/* DÚVIDAS FREQUENTES CENTRALIZADAS */
 .secao-perguntas {
     width: 100%;
     max-width: 800px;
-    margin: 35px auto;
+    margin: 35px auto !important;
     padding: 25px;
     background-color: white;
     border: 2px solid #ff69b4;
@@ -254,6 +267,7 @@ main {
 .secao-perguntas h2 {
     color: #ff1493;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .item-pergunta {
@@ -262,13 +276,13 @@ main {
 }
 
 /* BOTÕES DAS PERGUNTAS */
-.pergunta {
+.secao-perguntas .pergunta {
     display: block;
     width: 100%;
     padding: 14px;
-    background-color: #ff69b4 !important;
-    color: white !important;
-    border: 1px solid #ff1493;
+    background-color: #fff0f5 !important;
+    color: #ff1493 !important;
+    border: 1px solid #ff69b4;
     border-radius: 10px;
     cursor: pointer;
     font-size: 14px;
@@ -277,9 +291,9 @@ main {
     transition: 0.3s;
 }
 
-.pergunta:hover {
-    background-color: #ff1493 !important;
-    color: white !important;
+.secao-perguntas .pergunta:hover {
+    background-color: #ffe0ed !important;
+    color: #ff1493 !important;
 }
 
 /* RESPOSTAS */
@@ -449,7 +463,7 @@ footer {
         max-width: 100%;
     }
 
-    .pergunta {
+    .secao-perguntas .pergunta {
         font-size: 13px;
     }
 
