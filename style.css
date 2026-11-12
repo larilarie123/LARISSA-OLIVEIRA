@@ -1,4 +1,3 @@
-/* CONFIGURAÇÕES GERAIS */
 * {
     margin: 0;
     padding: 0;
@@ -15,7 +14,6 @@ body {
     overflow-x: hidden;
 }
 
-/* CABEÇALHO */
 header {
     background-color: #ff69b4;
     color: white;
@@ -33,7 +31,6 @@ header p {
     font-size: 1.1rem;
 }
 
-/* MENU DE NAVEGAÇÃO */
 #botao-menu {
     display: block;
     margin: 10px auto;
@@ -76,7 +73,7 @@ header p {
     color: white;
 }
 
-/* BOTÃO DÚVIDAS FREQUENTES */
+
 .menu button#botao-produtos {
     background: transparent;
     color: #ff1493;
@@ -95,7 +92,7 @@ header p {
     color: white;
 }
 
-/* CONTEÚDO PRINCIPAL */
+
 main {
     flex: 1;
     width: 100%;
@@ -110,7 +107,7 @@ main {
     margin-bottom: 30px;
 }
 
-/* CARDS DE MAQUIAGEM */
+
 .container-fotos {
     display: flex;
     flex-wrap: wrap;
@@ -150,7 +147,6 @@ main {
     font-size: 1.5rem;
 }
 
-/* BOTÕES */
 .botao {
     display: inline-block;
     background-color: #ff69b4;
@@ -170,7 +166,6 @@ main {
     background-color: #ff1493;
 }
 
-/* LINKS */
 .links {
     display: flex;
     flex-wrap: wrap;
@@ -180,7 +175,6 @@ main {
     margin-top: 30px;
 }
 
-/* PÁGINAS INTERNAS */
 .pagina {
     max-width: 800px;
     width: 100%;
@@ -216,7 +210,7 @@ main {
     line-height: 1.6;
 }
 
-/* PRODUTOS ANTIGOS */
+
 .secao-produtos {
     margin: 35px 0;
     padding: 25px;
@@ -236,7 +230,7 @@ main {
     line-height: 1.6;
 }
 
-/* PERGUNTAS FREQUENTES */
+
 .secao-perguntas {
     margin: 35px 0;
     padding: 25px;
@@ -285,48 +279,19 @@ main {
     text-align: left;
 }
 
-/* NOVA SEÇÃO DE DÚVIDAS */
-#secao-produtos {
-    width: 100%;
-    margin: 25px auto;
-    text-align: center;
-}
 
-#secao-produtos h2 {
-    color: #ff1493;
-    margin-bottom: 20px;
-}
-
-#secao-produtos .cartao-make {
-    width: 100%;
-    max-width: 750px;
-    margin: 0 auto 20px;
-    text-align: left;
-}
-
-#secao-produtos h3 {
-    color: #ff1493;
-    margin: 18px 0 8px;
-}
-
-#secao-produtos p {
-    line-height: 1.6;
-    margin-bottom: 15px;
-}
-
-/* BOTÃO VOLTAR */
 #botao-voltar {
     cursor: pointer;
     border: none;
     font-size: 15px;
 }
 
-/* ESCONDER SEÇÕES */
+
 [hidden] {
     display: none !important;
 }
 
-/* RODAPÉ */
+
 footer {
     background-color: #ff69b4;
     color: white;
@@ -336,7 +301,7 @@ footer {
     width: 100%;
 }
 
-/* COMPUTADOR */
+
 @media (min-width: 1001px) {
     .container-fotos {
         justify-content: center;
@@ -350,7 +315,7 @@ footer {
     }
 }
 
-/* TABLET */
+
 @media (min-width: 701px) and (max-width: 1000px) {
     main {
         width: 100%;
@@ -381,7 +346,7 @@ footer {
     }
 }
 
-/* CELULAR */
+
 @media (max-width: 700px) {
     header {
         padding: 30px 15px;
@@ -474,7 +439,7 @@ footer {
     }
 }
 
-/* ORGANIZAÇÃO DA PÁGINA PRINCIPAL */
+
 .pagina-maquiagem {
     min-height: 100vh;
     display: flex;
@@ -489,7 +454,7 @@ footer {
     margin-top: auto;
 }
 
-/* INTERATIVIDADE DOS CARDS */
+
 .cartao-make.card-ativo {
     transform: translateY(-10px);
     box-shadow: 0 12px 24px rgba(255, 105, 180, 0.4);
