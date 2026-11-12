@@ -74,7 +74,7 @@ header p {
 }
 
 
-.menu button#botao-produtos {
+.menu 
     background: transparent;
     color: #ff1493;
     font-weight: bold;
@@ -87,7 +87,8 @@ header p {
     font-family: Arial, sans-serif;
 }
 
-.menu button#botao-produtos:hover {
+.menu button
+hover {
     background-color: #ff69b4;
     color: white;
 }
