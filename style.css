@@ -16,6 +16,7 @@ body {
     overflow-x: hidden;
 }
 
+/* CABEÇALHO */
 header {
     background-color: #ff69b4;
     color: white;
@@ -33,6 +34,7 @@ header p {
     font-size: 1.1rem;
 }
 
+/* BOTÃO MENU */
 #botao-menu {
     display: block;
     margin: 10px auto;
@@ -238,7 +240,9 @@ main {
 
 /* DÚVIDAS FREQUENTES */
 .secao-perguntas {
-    margin: 35px 0;
+    width: 100%;
+    max-width: 800px;
+    margin: 35px auto;
     padding: 25px;
     background-color: white;
     border: 2px solid #ff69b4;
@@ -254,13 +258,16 @@ main {
 
 .item-pergunta {
     margin: 12px 0;
+    width: 100%;
 }
 
+/* BOTÕES DAS PERGUNTAS */
 .pergunta {
+    display: block;
     width: 100%;
     padding: 14px;
-    background-color: #ff69b4;
-    color: white;
+    background-color: #ff69b4 !important;
+    color: white !important;
     border: 1px solid #ff1493;
     border-radius: 10px;
     cursor: pointer;
@@ -271,10 +278,11 @@ main {
 }
 
 .pergunta:hover {
-    background-color: #ff1493;
-    color: white;
+    background-color: #ff1493 !important;
+    color: white !important;
 }
 
+/* RESPOSTAS */
 .resposta {
     padding: 14px;
     color: #4a3b40;
@@ -433,7 +441,12 @@ footer {
     .secao-produtos,
     .secao-perguntas {
         padding: 18px 12px;
-        margin: 25px 0;
+        margin: 25px auto;
+    }
+
+    .secao-perguntas {
+        width: 100%;
+        max-width: 100%;
     }
 
     .pergunta {
