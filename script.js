@@ -1,167 +1,85 @@
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    // MENU INTERATIVO
-    const botaoMenu = document.getElementById("botao-menu");
-    const menu = document.getElementById("menu");
+    const formulario = document.getElementById("form-teste");
+    const resultado = document.getElementById("resultado-teste");
 
-    if (botaoMenu && menu) {
-        botaoMenu.addEventListener("click", function () {
-            menu.hidden = !menu.hidden;
-
-            botaoMenu.setAttribute(
-                "aria-expanded",
-                String(!menu.hidden)
-            );
-        });
+    if (!formulario || !resultado) {
+        return;
     }
 
-    // ABRIR E FECHAR O QUIZ
-    const botaoAbrirQuiz = document.getElementById("botao-abrir-quiz");
-    const formularioQuiz = document.getElementById("form-teste");
-    const resultadoQuiz = document.getElementById("resultado-teste");
+    formulario.addEventListener("submit", function (evento) {
 
-    if (botaoAbrirQuiz && formularioQuiz) {
+        evento.preventDefault();
 
-        botaoAbrirQuiz.addEventListener("click", function () {
+        const respostas = new FormData(formulario);
 
-            formularioQuiz.hidden = !formularioQuiz.hidden;
+        let natural = 0;
+        let social = 0;
+        let marcante = 0;
+        let artistica = 0;
 
-            botaoAbrirQuiz.textContent = formularioQuiz.hidden
-                ? "Descobrir minha maquiagem ideal"
-                : "Fechar teste";
+        // Contar as respostas
+        for (let i = 1; i <= 4; i++) {
 
-            if (!formularioQuiz.hidden) {
-                formularioQuiz.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
-            } else if (resultadoQuiz) {
-                resultadoQuiz.hidden = true;
-            }
-        });
-    }
+            const resposta = respostas.get("p" + i);
 
-    // DÚVIDAS FREQUENTES
-    const botaoProdutos = document.getElementById("botao-produtos");
-    const secaoProdutos = document.getElementById("secao-produtos");
-    const botaoVoltar = document.getElementById("botao-voltar");
-
-    const destaqueQuiz = document.querySelector(".destaque-quiz");
-    const titulo = document.querySelector(".titulo");
-    const maquiagens = document.getElementById("maquiagens");
-
-    if (botaoProdutos && secaoProdutos) {
-
-        botaoProdutos.addEventListener("click", function () {
-
-            if (destaqueQuiz) destaqueQuiz.hidden = true;
-            if (titulo) titulo.hidden = true;
-            if (maquiagens) maquiagens.hidden = true;
-
-            secaoProdutos.hidden = false;
-
-            if (menu) menu.hidden = true;
-
-            if (botaoMenu) {
-                botaoMenu.setAttribute("aria-expanded", "false");
-            }
-
-            secaoProdutos.scrollIntoView({
-                behavior: "smooth",
-                block: "center"
-            });
-        });
-    }
-
-    if (botaoVoltar && secaoProdutos) {
-
-        botaoVoltar.addEventListener("click", function () {
-
-            secaoProdutos.hidden = true;
-
-            if (destaqueQuiz) destaqueQuiz.hidden = false;
-            if (titulo) titulo.hidden = false;
-            if (maquiagens) maquiagens.hidden = false;
-
-            if (destaqueQuiz) {
-                destaqueQuiz.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
-            }
-        });
-    }
-
-    // EFEITO 3D DOS CARDS
-    const cards = document.querySelectorAll(
-        "#maquiagens .cartao-make"
-    );
-
-    const temMouse = window.matchMedia(
-        "(hover: hover) and (pointer: fine)"
-    ).matches;
-
-    cards.forEach(function (card) {
-
-        function resetarCard() {
-
-            const elevacao = card.classList.contains("card-ativo")
-                ? -8
-                : 0;
-
-            card.style.zIndex = "1";
-
-            card.style.transform =
-                `perspective(1000px) translateY(${elevacao}px) rotateX(0deg) rotateY(0deg) scale(1)`;
-
-            card.style.transition = "transform 0.5s ease-out";
+            if (resposta === "natural") natural++;
+            if (resposta === "social") social++;
+            if (resposta === "marcante") marcante++;
+            if (resposta === "artistica") artistica++;
         }
 
-        function aplicarEfeito3D(clientX, clientY) {
+        // Descobrir o estilo mais escolhido
+        let estilo = "natural";
 
-            const rect = card.getBoundingClientRect();
-
-            const x = clientX - rect.left;
-            const y = clientY - rect.top;
-
-            const centroX = rect.width / 2;
-            const centroY = rect.height / 2;
-
-            const rotacaoX = ((y - centroY) / centroY) * -10;
-            const rotacaoY = ((x - centroX) / centroX) * 10;
-
-            const elevacao = card.classList.contains("card-ativo")
-                ? -8
-                : 0;
-
-            card.style.zIndex = "20";
-
-            card.style.transform =
-                `perspective(1000px) translateY(${elevacao}px) rotateX(${rotacaoX}deg) rotateY(${rotacaoY}deg) scale(1.02)`;
-
-            card.style.transition = "transform 0.1s ease-out";
+        if (social > natural) estilo = "social";
+        if (marcante > natural && marcante > social) estilo = "marcante";
+        if (artistica > natural && artistica > social && artistica > marcante) {
+            estilo = "artistica";
         }
 
-        if (temMouse) {
+        // Mostrar o resultado
+        const nome = document.getElementById("nome-resultado");
+        const imagem = document.getElementById("imagem-resultado");
+        const descricao = document.getElementById("descricao-resultado");
+        const link = document.getElementById("link-resultado");
 
-            card.addEventListener("mousemove", function (e) {
-                aplicarEfeito3D(e.clientX, e.clientY);
-            });
-
-            card.addEventListener("mouseleave", resetarCard);
+        if (estilo === "natural") {
+            nome.textContent = "Pele Iluminada";
+            imagem.src = "maquiagem natural.jpg";
+            descricao.textContent = "Sua maquiagem ideal é a Pele Iluminada! Um visual leve e delicado para o dia a dia.";
+            link.href = "natural.html";
         }
 
-        card.addEventListener("click", function (event) {
+        if (estilo === "social") {
+            nome.textContent = "Maquiagem Social";
+            imagem.src = "maquiagem evento.webp";
+            descricao.textContent = "Sua maquiagem ideal é a Maquiagem Social! Um visual elegante para festas e eventos.";
+            link.href = "noturna.html";
+        }
 
-            if (event.target.closest("a, button")) {
-                return;
-            }
+        if (estilo === "marcante") {
+            nome.textContent = "Olhar Marcante";
+            imagem.src = "maquiagem olhar marcanter.jpg";
+            descricao.textContent = "Sua maquiagem ideal é o Olhar Marcante! Uma produção com destaque nos olhos.";
+            link.href = "marcante.html";
+        }
 
-            card.classList.toggle("card-ativo");
+        if (estilo === "artistica") {
+            nome.textContent = "Maquiagem Artística";
+            imagem.src = "IMG_b711f3c4-f574-4a25-bfa9-8b15b6210e20.jpg";
+            descricao.textContent = "Sua maquiagem ideal é a Maquiagem Artística! Um estilo criativo e cheio de cores.";
+            link.href = "Artística.html";
+        }
 
-            resetarCard();
+        resultado.hidden = false;
+
+        resultado.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
         });
+
     });
 
 });
