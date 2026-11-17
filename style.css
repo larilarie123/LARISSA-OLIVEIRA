@@ -7,6 +7,10 @@
     font-family: Arial, sans-serif;
 }
 
+html {
+    min-height: 100%;
+}
+
 body {
     background-color: #fff0f5;
     color: #4a3b40;
@@ -64,62 +68,31 @@ header p {
     padding: 15px;
 }
 
-.menu a {
-    color: #ff1493;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 10px 18px;
-    border-radius: 20px;
-    transition: 0.3s;
-}
-
-.menu a:hover {
-    background-color: #ff69b4;
-    color: white;
-}
-
-/* BOTÕES DO MENU */
+/* TODOS OS BOTÕES E LINKS DO MENU */
+.menu a,
 .menu button {
     background-color: #ff69b4;
     color: white;
+    text-decoration: none;
     font-weight: bold;
     padding: 10px 18px;
     border: none;
     border-radius: 20px;
-    cursor: pointer;
-    font-size: 16px;
     transition: 0.3s;
+    font-size: 14px;
     font-family: Arial, sans-serif;
+    cursor: pointer;
 }
 
+.menu a:hover,
 .menu button:hover {
     background-color: #ff1493;
     color: white;
 }
-/* DÚVIDAS FREQUENTES */
-.menu button#botao-duvidas {
-    background: transparent !important;
-    color: #ff1493 !important;
-    border: none !important;
-    box-shadow: none !important;
-    padding: 10px 18px;
-    border-radius: 20px;
-    font-weight: bold;
-}
 
-/* Ao passar o mouse */
-.menu button#botao-duvidas:hover {
-    background: #ff1493 !important;
-    color: white !important;
-}
-
-/* Ao clicar ou selecionar */
-.menu button#botao-duvidas:focus,
-.menu button#botao-duvidas:active,
-.menu button#botao-duvidas.active {
-    background: transparent !important;
-    color: #ff1493 !important;
-    box-shadow: none !important;
+/* ELEMENTOS OCULTOS */
+[hidden] {
+    display: none !important;
 }
 
 /* CONTEÚDO PRINCIPAL */
@@ -129,6 +102,10 @@ main {
     max-width: 1100px;
     margin: 0 auto;
     padding: 40px 20px;
+}
+
+.principal {
+    flex: 1;
 }
 
 .titulo {
@@ -142,6 +119,7 @@ main {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: stretch;
     gap: 25px;
 }
 
@@ -177,7 +155,7 @@ main {
     font-size: 1.5rem;
 }
 
-/* BOTÕES */
+/* BOTÕES DOS CARDS */
 .botao {
     display: inline-block;
     background-color: #ff69b4;
@@ -191,6 +169,7 @@ main {
     text-align: center;
     border: none;
     cursor: pointer;
+    transition: 0.3s;
 }
 
 .botao:hover {
@@ -263,72 +242,72 @@ main {
     line-height: 1.6;
 }
 
-/* DÚVIDAS FREQUENTES CENTRALIZADAS */
+/* DÚVIDAS FREQUENTES */
 .secao-perguntas {
     width: 100%;
-    max-width: 800px;
-    margin: 35px auto !important;
+    max-width: 750px;
+    margin: 30px auto !important;
     padding: 25px;
+    text-align: center;
+}
+
+/* TÍTULO DAS DÚVIDAS */
+.secao-perguntas > h2 {
+    color: #ff1493;
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 25px;
+}
+
+/* QUADRO DAS PERGUNTAS */
+.conteudo-perguntas {
+    width: 100%;
     background-color: white;
     border: 2px solid #ff69b4;
     border-radius: 15px;
+    padding: 25px;
     text-align: center;
-    box-shadow: 0 4px 12px rgba(255, 105, 180, 0.12);
+    box-shadow: 0 4px 12px rgba(255, 105, 180, 0.15);
 }
 
-.secao-perguntas h2 {
-    color: #ff1493;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
+/* CADA PERGUNTA */
 .item-pergunta {
-    margin: 12px 0;
     width: 100%;
+    margin-bottom: 22px;
+    text-align: center;
 }
 
-/* BOTÕES DAS PERGUNTAS */
-.secao-perguntas .pergunta {
-    display: block;
-    width: 100%;
-    padding: 14px;
-    background-color: #fff0f5 !important;
-    color: #ff1493 !important;
-    border: 1px solid #ff69b4;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: bold;
-    text-align: left;
-    transition: 0.3s;
+.item-pergunta:last-child {
+    margin-bottom: 0;
 }
 
-.secao-perguntas .pergunta:hover {
-    background-color: #ffe0ed !important;
-    color: #ff1493 !important;
+.item-pergunta h3 {
+    color: #d63384;
+    font-size: 17px;
+    margin-bottom: 8px;
 }
 
-/* RESPOSTAS */
-.resposta {
-    padding: 14px;
+.item-pergunta p {
     color: #4a3b40;
-    background-color: #fff0f5;
-    border-radius: 8px;
-    margin-top: 6px;
+    font-size: 15px;
     line-height: 1.6;
-    text-align: left;
 }
 
 /* BOTÃO VOLTAR */
 #botao-voltar {
-    cursor: pointer;
+    display: inline-block;
+    background-color: #ff69b4;
+    color: white;
     border: none;
-    font-size: 15px;
+    border-radius: 20px;
+    padding: 11px 22px;
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 14px;
 }
 
-/* ELEMENTOS OCULTOS */
-[hidden] {
-    display: none !important;
+#botao-voltar:hover {
+    background-color: #ff1493;
 }
 
 /* RODAPÉ */
@@ -337,15 +316,20 @@ footer {
     color: white;
     text-align: center;
     padding: 20px;
-    margin-top: 20px;
+    margin-top: auto;
     width: 100%;
 }
 
 /* COMPUTADORES */
 @media (min-width: 1001px) {
+
     .container-fotos {
         justify-content: center;
         align-items: stretch;
+    }
+
+    .cartao-make {
+        width: 310px;
     }
 
     .cartao-make img {
@@ -357,6 +341,7 @@ footer {
 
 /* TABLETS */
 @media (min-width: 701px) and (max-width: 1000px) {
+
     main {
         width: 100%;
         padding: 35px 20px;
@@ -374,7 +359,6 @@ footer {
         width: 100%;
         height: 230px;
         object-fit: contain;
-        max-width: 100%;
     }
 
     header h1 {
@@ -388,6 +372,7 @@ footer {
 
 /* CELULARES */
 @media (max-width: 700px) {
+
     header {
         padding: 30px 15px;
     }
@@ -433,27 +418,22 @@ footer {
     }
 
     .botao {
-        width: 100%;
         max-width: 320px;
     }
 
+    /* MENU NO CELULAR */
     .menu {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 5px;
+        gap: 8px;
         padding: 12px 5px;
     }
 
-    .menu a {
+    .menu a,
+    .menu button {
         font-size: 12px;
-        padding: 8px 7px;
-        white-space: normal;
-    }
-
-    .menu button#botao-produtos {
-        font-size: 12px;
-        padding: 8px 7px;
+        padding: 8px 10px;
     }
 
     .pagina {
@@ -464,18 +444,41 @@ footer {
         padding: 15px;
     }
 
-    .secao-produtos,
-    .secao-perguntas {
+    .secao-produtos {
         padding: 18px 12px;
         margin: 25px auto;
     }
 
+    /* DÚVIDAS NO CELULAR */
     .secao-perguntas {
         width: 100%;
         max-width: 100%;
+        padding: 20px 10px;
+        margin: 20px auto !important;
     }
 
-    .secao-perguntas .pergunta {
+    .secao-perguntas > h2 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    .conteudo-perguntas {
+        padding: 20px 14px;
+    }
+
+    .item-pergunta {
+        margin-bottom: 20px;
+    }
+
+    .item-pergunta h3 {
+        font-size: 15px;
+    }
+
+    .item-pergunta p {
+        font-size: 13px;
+    }
+
+    #botao-voltar {
         font-size: 13px;
     }
 
