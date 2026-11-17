@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const formulario = document.getElementById("form-teste");
     const resultado = document.getElementById("resultado-teste");
 
+    // Só funciona na página que possui o quiz
     if (!formulario || !resultado) {
         return;
     }
@@ -26,7 +27,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const resposta = respostas.get("p" + i);
 
-            if (resposta && estilos[resposta] !== undefined) {
+            if (!resposta) {
+                alert("Responda todas as perguntas antes de descobrir sua maquiagem ideal!");
+                return;
+            }
+
+            if (estilos[resposta] !== undefined) {
                 estilos[resposta]++;
             }
         }
@@ -42,28 +48,28 @@ document.addEventListener("DOMContentLoaded", function () {
             natural: {
                 nome: "Pele Iluminada",
                 imagem: "maquiagem natural.jpg",
-                descricao: "Seu estilo é uma maquiagem leve e delicada, ideal para quem gosta de um visual natural para o dia a dia.",
+                descricao: "Sua maquiagem ideal é a Pele Iluminada! Um visual leve e delicado, perfeito para o dia a dia.",
                 link: "natural.html"
             },
 
             social: {
                 nome: "Maquiagem Social",
                 imagem: "maquiagem evento.webp",
-                descricao: "Seu estilo é uma maquiagem elegante, ótima para festas, casamentos e eventos especiais.",
+                descricao: "Sua maquiagem ideal é a Maquiagem Social! Um visual elegante para festas, casamentos e eventos especiais.",
                 link: "noturna.html"
             },
 
             marcante: {
                 nome: "Olhar Marcante",
                 imagem: "maquiagem olhar marcanter.jpg",
-                descricao: "Seu estilo é uma maquiagem com destaque nos olhos e um visual cheio de personalidade.",
+                descricao: "Sua maquiagem ideal é o Olhar Marcante! Uma produção com destaque nos olhos e muita personalidade.",
                 link: "marcante.html"
             },
 
             artistica: {
                 nome: "Maquiagem Artística",
                 imagem: "IMG_b711f3c4-f574-4a25-bfa9-8b15b6210e20.jpg",
-                descricao: "Seu estilo é uma maquiagem criativa, com cores, desenhos e detalhes especiais.",
+                descricao: "Sua maquiagem ideal é a Maquiagem Artística! Um estilo criativo, cheio de cores, desenhos e detalhes especiais.",
                 link: "Artística.html"
             }
         };
@@ -71,26 +77,37 @@ document.addEventListener("DOMContentLoaded", function () {
         const escolhido = resultados[estiloVencedor];
 
         // MOSTRAR NOME
-        document.getElementById("nome-resultado").textContent =
-            escolhido.nome;
+        const nome = document.getElementById("nome-resultado");
+
+        if (nome) {
+            nome.textContent = escolhido.nome;
+        }
 
         // MOSTRAR IMAGEM
         const imagem = document.getElementById("imagem-resultado");
 
-        imagem.src = escolhido.imagem;
-        imagem.alt = escolhido.nome;
+        if (imagem) {
+            imagem.src = escolhido.imagem;
+            imagem.alt = escolhido.nome;
 
-        imagem.onerror = function () {
-            this.alt = "Não foi possível carregar a imagem. Confira o nome do arquivo.";
-        };
+            imagem.onerror = function () {
+                this.alt = "Imagem não encontrada. Confira o nome do arquivo.";
+            };
+        }
 
         // MOSTRAR DESCRIÇÃO
-        document.getElementById("descricao-resultado").textContent =
-            escolhido.descricao;
+        const descricao = document.getElementById("descricao-resultado");
+
+        if (descricao) {
+            descricao.textContent = escolhido.descricao;
+        }
 
         // LINK DO PASSO A PASSO
-        document.getElementById("link-resultado").href =
-            escolhido.link;
+        const link = document.getElementById("link-resultado");
+
+        if (link) {
+            link.href = escolhido.link;
+        }
 
         // EXIBIR RESULTADO
         resultado.hidden = false;
