@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descubra sua maquiagem ideal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Mundo da Maquiagem</h1>
+        <p>Realçando a sua beleza natural</p>
+    </header>
+
+    <nav class="menu" id="menu" hidden>
+        <a href="index.html">Início</a>
+        <a href="dicas.html">Dicas de Maquiagem</a>
+        <a href="finalização.html">Mais dicas</a>
+        <a href="quiz.html">Descubra sua maquiagem ideal</a>
+    </nav>
+
+    <main class="pagina-quiz">
+
+        <section class="destaque-quiz">
+
+            <h2>Descubra sua maquiagem ideal ✨</h2>
+
+            <p>
+                Responda às perguntas e descubra qual estilo de
+                maquiagem combina mais com você!
+            </p>
+
+            <form id="form-teste">
+
+                <div class="pergunta">
+                    <h3>1. Qual estilo você prefere?</h3>
+
+                    <label>
+                        <input type="radio" name="p1" value="natural" required>
+                        Natural e delicado
+                    </label>
+
+                    <label>
+                        <input type="radio" name="p1" value="social">
+                        Elegante e sofisticado
+                    </label>
+
+                    <label>
+                        <input type="radio" name="p1" value="marcante">
+                        Marcante e destacado
+                    </label>
+
+                    <label>
+                        <input type="radio" name="p1" value="artistica">
+                        Criativo e diferente
+                    </label>
+                </div>
+
+                <div class="pergunta">
+                    <h3>2. Qual maquiagem você usaria em um passeio?</h3>
+
+                    <label>
+                        <input type="radio" name="p2" value="natural" required>
+                        Uma maquiagem leve
+                    </label>
+
+                    <label>
+                        <input type="radio" name="p2" value="social">
+                        Uma produção elegante
+                    </label>
+
+                    <label>
+                        <input type="radio" name="p2" value="marcante">
+                        Olhos bem destacados
+                    </label>
+
+                    <label>
+                        <input type="radio" name="p2" value="artistica">
+                        Uma maquiagem colorida
+                    </label>
+                </div>
+
+                <div class="pergunta">
+                    <h3>3. O que você mais gosta de destacar?</h3>
+
+                    <label>
+                        <input type="radio" name="p3" value="natural" required>
+                        A pele iluminada
+                    </label>
+
+                    <label>
+                        <input type="radio" name="p3" value="social">
+                        Um visual harmonioso
+                    </label>
+
+                    <label>
+                        <input type="radio" name="p3" value="marcante">
+                        Os olhos
+                    </label>
+
+                    <label>
+                        <input type="radio" name="p3" value="artistica">
+                        Cores e desenhos
+                    </label>
+                </div>
+
+                <div class="pergunta">
+                    <h3>4. Qual dessas opções combina mais com você?</h3>
+
+                    <label>
+                        <input type="radio" name="p4" value="natural" required>
+                        Simplicidade
+                    </label>
+
+                    <label>
+                        <input type="radio" name="p4" value="social">
+                        Elegância
+                    </label>
+
+                    <label>
+                        <input type="radio" name="p4" value="marcante">
+                        Personalidade
+                    </label>
+
+                    <label>
+                        <input type="radio" name="p4" value="artistica">
+                        Criatividade
+                    </label>
+                </div>
+
+                <button type="submit" class="botao">
+                    Descubra minha maquiagem ✨
+                </button>
+
+            </form>
+
+            <section id="resultado-teste" hidden>
+
+                <h2 id="nome-resultado"></h2>
+
+                <img id="imagem-resultado" src="" alt="Maquiagem recomendada">
+
+                <p id="descricao-resultado"></p>
+
+                <a id="link-resultado" href="#" class="botao">
+                    Ver passo a passo
+                </a>
+
+            </section>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 - Mundo da Maquiagem</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="quiz.js"></script>
+
+</body>
+</html>
