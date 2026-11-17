@@ -251,7 +251,6 @@ main {
     text-align: center;
 }
 
-/* TÍTULO DAS DÚVIDAS */
 .secao-perguntas > h2 {
     color: #ff1493;
     text-align: center;
@@ -259,7 +258,6 @@ main {
     margin-bottom: 25px;
 }
 
-/* QUADRO DAS PERGUNTAS */
 .conteudo-perguntas {
     width: 100%;
     background-color: white;
@@ -270,7 +268,6 @@ main {
     box-shadow: 0 4px 12px rgba(255, 105, 180, 0.15);
 }
 
-/* CADA PERGUNTA */
 .item-pergunta {
     width: 100%;
     margin-bottom: 22px;
@@ -515,4 +512,186 @@ footer {
 .cartao-make.card-ativo .botao {
     filter: brightness(1.1);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* ================================= */
+/* CORREÇÃO DAS DÚVIDAS FREQUENTES */
+/* ================================= */
+
+.secao-perguntas {
+    width: 100%;
+    max-width: 750px;
+    margin: 35px auto !important;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.secao-perguntas > h2 {
+    width: 100%;
+    text-align: center;
+    color: #ff1493;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.conteudo-perguntas {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: white;
+    border: 2px solid #ff69b4;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(255, 105, 180, 0.15);
+}
+
+.item-pergunta {
+    width: 100%;
+    margin: 0 auto 25px;
+    text-align: center;
+}
+
+.item-pergunta h3 {
+    color: #d63384;
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+/* ================================= */
+/* QUIZ DE MAQUIAGEM */
+/* ================================= */
+
+#form-teste {
+    width: 100%;
+    max-width: 750px;
+    margin: 35px auto;
+    padding: 25px;
+    background-color: white;
+    border: 2px solid #ff69b4;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(255, 105, 180, 0.12);
+    text-align: center;
+}
+
+#form-teste h2 {
+    color: #ff1493;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#form-teste p {
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+#form-teste label {
+    display: inline-block;
+    margin: 8px;
+    cursor: pointer;
+}
+
+#form-teste input[type="radio"] {
+    accent-color: #ff1493;
+    margin-right: 4px;
+}
+
+#form-teste button {
+    display: block;
+    margin: 20px auto 0;
+    padding: 12px 25px;
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#form-teste button:hover {
+    background-color: #ff1493;
+}
+
+/* ================================= */
+/* RESULTADO DO QUIZ */
+/* ================================= */
+
+#resultado-teste {
+    width: 100%;
+    max-width: 550px;
+    margin: 25px auto;
+    padding: 25px;
+    background-color: white;
+    border: 2px solid #ff69b4;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(255, 105, 180, 0.15);
+}
+
+#resultado-teste h2 {
+    color: #ff1493;
+    margin-bottom: 15px;
+}
+
+#resultado-teste h3 {
+    color: #d63384;
+    margin: 15px 0;
+    font-size: 22px;
+}
+
+#resultado-teste img {
+    display: block;
+    width: 100%;
+    max-width: 230px;
+    height: 230px;
+    object-fit: contain;
+    margin: 15px auto;
+    border-radius: 10px;
+}
+
+#resultado-teste p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+#resultado-teste .botao {
+    display: inline-block;
+}
+
+/* AJUSTES FINAIS PARA CELULAR */
+@media (max-width: 700px) {
+
+    .secao-perguntas {
+        width: 100%;
+        padding: 15px;
+        margin: 25px auto !important;
+    }
+
+    .conteudo-perguntas {
+        width: 100%;
+        padding: 22px 15px;
+    }
+
+    .item-pergunta {
+        margin-bottom: 22px;
+    }
+
+    #form-teste {
+        width: 100%;
+        padding: 18px 12px;
+        margin: 25px auto;
+    }
+
+    #form-teste label {
+        margin: 6px 3px;
+    }
+
+    #resultado-teste {
+        width: 100%;
+        padding: 20px 15px;
+    }
 }
